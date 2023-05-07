@@ -1,0 +1,13 @@
+@font-face {
+    font-family: 'NanumSquareNeo';
+    font-weight: 400;
+    font-style: normal;
+    src: url('./NanumSquareNeoTTF-bRg.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'NanumSquareNeo';
+    font-weight: 700;
+    font-style: normal;
+    src: url('./NanumSquareNeoTTF-cBd.woff2') format('woff2');
+}
