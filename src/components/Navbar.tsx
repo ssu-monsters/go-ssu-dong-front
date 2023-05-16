@@ -1,45 +1,47 @@
 import React, { useState } from "react";
 import { useRouter } from "next/router";
+import { authState } from "@/atoms/auth";
+import { useRecoilState } from "recoil";
 export interface NavBarProps {
   children: React.ReactNode;
 }
 
 const Navbar = ({ children }: NavBarProps) => {
-  const [btn, setBtn] = useState("");
-  const [drop, setDrop] = useState(false);
-  const [auth, setAuth] = useState(false);
+  const [activeTab, setActiveTab] = useState("");
+  const [isDropdownOpened, setIsDropdownOpened] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useRecoilState(authState);
 
   const router = useRouter();
 
-  const select = (item: any) => {
+  const selectTabItem = (item: any) => {
     if (item === "홍보글") {
-      setBtn("홍보글");
+      setActiveTab("홍보글");
       router.push("/promotion");
     } else if (item === "지원") {
-      setBtn("지원");
+      setActiveTab("지원");
       router.push("/support");
     } else if (item === "모집") {
-      setBtn("모집");
+      setActiveTab("모집");
       router.push("/recruit");
     }
   };
 
   const SpaceHome = () => {
-    setBtn("");
+    setActiveTab("");
     router.push("/");
   };
 
   const SpaceMypage = () => {
-    setDrop(!drop);
+    setIsDropdownOpened(!isDropdownOpened);
   };
 
-  const Login = (text: any) => {
-    if (text == "로그인") {
-      setAuth(!auth);
-    } else {
-      setAuth(!auth);
-      setDrop(!drop);
-    }
+  const onLogin = (text: any) => {
+    setIsLoggedIn(!isLoggedIn);
+  };
+
+  const onLogout = (text: any) => {
+    setIsLoggedIn(!isLoggedIn);
+    setIsDropdownOpened(!isDropdownOpened);
   };
 
   return (
@@ -51,27 +53,27 @@ const Navbar = ({ children }: NavBarProps) => {
           </div>
           <div className="center">
             <li
-              className={btn === "홍보글" ? "selected" : ""}
-              onClick={() => select("홍보글")}
+              className={activeTab === "홍보글" ? "selected" : ""}
+              onClick={() => selectTabItem("홍보글")}
             >
               <p>홍보글 둘러보기</p>
             </li>
             <li
-              className={btn === "지원" ? "selected" : ""}
-              onClick={() => select("지원")}
+              className={activeTab === "지원" ? "selected" : ""}
+              onClick={() => selectTabItem("지원")}
             >
               <p>조직 지원 관리</p>
             </li>
             <li
-              className={btn === "모집" ? "selected" : ""}
-              onClick={() => select("모집")}
+              className={activeTab === "모집" ? "selected" : ""}
+              onClick={() => selectTabItem("모집")}
             >
               <p>조직 모집 관리</p>
             </li>
           </div>
           <div className="right">
-            {!auth ? (
-              <div className="login" onClick={() => Login("로그인")}>
+            {!isLoggedIn ? (
+              <div className="login" onClick={onLogin}>
                 <div className="text">로그인</div>
               </div>
             ) : (
@@ -83,7 +85,7 @@ const Navbar = ({ children }: NavBarProps) => {
                 <div className="name" onClick={SpaceMypage}>
                   배현서
                 </div>
-                {drop ? (
+                {isDropdownOpened ? (
                   <div>
                     <div className="drop-triangle"></div>
                     <div className="drop">
@@ -96,7 +98,7 @@ const Navbar = ({ children }: NavBarProps) => {
                         </div>
                         <div className="control">
                           <div style={{ marginBottom: "10px" }}>설정</div>
-                          <div onClick={() => Login("로그아웃")}>로그아웃</div>
+                          <div onClick={onLogout}>로그아웃</div>
                         </div>
                       </div>
                     </div>
