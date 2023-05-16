@@ -1,8 +1,7 @@
-import globalStyles from "@/styles/global";
-import type { AppProps } from "next/app";
-import Navbar from "@/components/Navbar";
-import "@/assets/fonts/font.css";
-import { RecoilRoot } from "recoil";
+import type { AppProps } from 'next/app';
+import Navbar from '@/components/Navbar';
+import '@/assets/fonts/font.css';
+import { RecoilRoot } from 'recoil';
 
 import globalStyles from '@/styles/global';
 import '@/assets/fonts/font.css';
