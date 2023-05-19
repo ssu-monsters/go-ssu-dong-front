@@ -1,7 +1,8 @@
-import React from "react";
+import RecruitTemplate from '@/components/RecruitTemplate';
+import React from 'react';
 
 const Recruit = () => {
-  return <div> Recruit</div>;
+  return <RecruitTemplate />;
 };
 
 export default Recruit;
