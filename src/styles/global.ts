@@ -1,7 +1,7 @@
 import css from 'styled-jsx/css';
 
 export default css.global`
-  /*@font-face {
+  /* @font-face {
     font-family: 'NanumSquare Neo';
     font-style: normal;
     font-weight: 350;
@@ -25,7 +25,7 @@ export default css.global`
     font-style: normal;
     font-weight: 800;
     src: url('../assets/fonts/NanumSquareNeoTTF-dEb.woff2') format('woff2');
-  }*/
+  } */
 
   body {
     margin: auto;
