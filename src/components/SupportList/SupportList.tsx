@@ -31,7 +31,7 @@ const SupportList = ({ content }: MyComponentProps) => {
           <div className="list-item">
             {content.map((item, idx) => {
               return (
-                <li>
+                <li key={idx}>
                   <div className="list-in">
                     <div>{idx + 1}</div>
                     <div>{item.name}</div>
