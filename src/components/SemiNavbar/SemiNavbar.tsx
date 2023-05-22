@@ -4,12 +4,17 @@ import { useRouter } from 'next/router';
 interface MyComponentProps {
   content: string;
 }
+interface NavItems {
+  support: string[];
+  recruit: string[];
+}
 
 const SemiNavbar = ({ content }: MyComponentProps) => {
-  const SEMINAVSUPPORT = ['나의 프로필', '지원 현황', '지원서 관리'];
-  const SEMINAVRECRUIT = ['조직 정보', '리크루팅 관리', '멤버 관리'];
+  const navItems: NavItems = {
+    support: ['나의 프로필', '지원 현황', '지원서 관리'],
+    recruit: ['조직 정보', '리크루팅 관리', '멤버 관리'],
+  };
 
-  const [semiNav, setSemiNav] = useState(SEMINAVSUPPORT);
   const [active, setActive] = useState(0);
   const router = useRouter();
 
@@ -27,11 +32,6 @@ const SemiNavbar = ({ content }: MyComponentProps) => {
   };
 
   useEffect(() => {
-    if (content === 'support') {
-      setSemiNav(SEMINAVSUPPORT);
-    } else {
-      setSemiNav(SEMINAVRECRUIT);
-    }
     const pageId = router.query.id;
     if (pageId === '1') {
       setActive(1);
@@ -44,7 +44,7 @@ const SemiNavbar = ({ content }: MyComponentProps) => {
     <>
       <div className="container">
         <div className="content">
-          {semiNav.map((item, idx) => {
+          {navItems[content as keyof NavItems].map((item, idx) => {
             //{{content ==="support" ? SEMINAVSUPPORT:SEMINAVRECRUIT }.map((item)=> ... )} 이런식으로 하고 싶었는데 안되더라고ㅇㅅ
             return (
               <div
