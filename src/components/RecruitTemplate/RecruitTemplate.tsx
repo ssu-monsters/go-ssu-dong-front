@@ -11,7 +11,7 @@ const RecruitTemplate = () => {
   return (
     <>
       <div className="title">
-        <p>조직 리쿠르팅 이력이 없습니다.</p>
+        <p>진행중인 리쿠르팅 프로세스가 없습니다.</p>
         <p>저희와 함께 리쿠르팅을 시작해볼까요?</p>
       </div>
       <div className="menus-wrap">

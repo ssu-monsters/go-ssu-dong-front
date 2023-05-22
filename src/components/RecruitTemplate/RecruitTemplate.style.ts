@@ -27,6 +27,7 @@ export default css`
   .menu-wrap {
     width: 230px;
     margin: 0px 45px;
+    cursor: pointer;
   }
 
   .image-container {
