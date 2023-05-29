@@ -1,7 +1,8 @@
-import React from "react";
+import PromotionWriting from '@/components/PromotionWrting';
+import React from 'react';
 
 const Recruit = () => {
-  return <div> Recruit</div>;
+  return <PromotionWriting />;
 };
 
 export default Recruit;
