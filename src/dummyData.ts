@@ -1,3 +1,5 @@
+import { RecruitPostType } from './constants/types/Recruit';
+
 export const RecruitPostDummyData: RecruitPostType[] = [
   {
     title: 'SSC1',
