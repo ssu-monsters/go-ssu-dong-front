@@ -6,16 +6,36 @@ import 'react-calendar/dist/Calendar.css';
 import moment from 'moment';
 
 const PromotionWriting = () => {
-  const RECRUITMEMBER = ['동아리', '대외할동', '스타트업', '소모임', '기타'];
+  const ORGANIZATION_TYPE = [
+    '동아리',
+    '대외할동',
+    '스타트업',
+    '소모임',
+    '기타',
+  ];
   let inputRef: any;
-  const [imageSrc, setImageSrc]: any = useState(null);
-  const [ChangeImg, setChangeImg]: any = useState(false);
-  const [open, setOpen] = useState(false);
-  const [num, setNum] = useState(0);
-  const [recruitStartDay, setRecruitStartDay] = useState('YYYY.MM.DD');
-  const [recruitEndDay, setRecruitEndDay] = useState('YYYY.MM.DD');
-  const [activeStartDay, setActiveStartDay] = useState('YYYY.MM.DD');
-  const [activeEndDay, setActiveEndDay] = useState('YYYY.MM.DD');
+  const [imageSrc, setImageSrc] = useState(null);
+  const [ChangeImg, setChangeImg] = useState(false);
+  const [isCalendarOpened, setIsCalendarOpened] = useState(false);
+  const [dayType, setDayType] = useState('');
+  const [dayInputs, setDayInputs] = useState({
+    recruitStartDay: '',
+    recruitEndDay: '',
+    activityStartDay: '',
+    activityEndDay: '',
+  });
+
+  const [promotionInfo, setPromotionInfo] = useState({
+    title: '',
+    intro: '',
+    user: '',
+    memberNumber: '',
+    type: '',
+    text: '',
+    thumnail: '',
+    supportLink: '',
+    relatedLink: '',
+  });
 
   const onUpload = (e: any) => {
     const file = e.target.files[0];
@@ -26,28 +46,49 @@ const PromotionWriting = () => {
       reader.onload = () => {
         setImageSrc(reader.result || null);
         resolve();
-        console.log(reader.result); // 서버에 보내줄 image url
+        setPromotionInfo({ ...promotionInfo, thumnail: reader.result });
       };
     });
   };
 
-  const openCalendar = (idx: number) => {
-    setOpen(true);
-    setNum(idx);
+  const openCalendar = (type: string) => {
+    setIsCalendarOpened(true);
+    setDayType(type);
   };
 
-  const clickDay = (value: any) => {
-    if (num === 1) {
-      setRecruitStartDay(moment(value).format('YYYY-MM-DD'));
-    } else if (num === 2) {
-      setRecruitEndDay(moment(value).format('YYYY-MM-DD'));
-    } else if (num === 3) {
-      setActiveStartDay(moment(value).format('YYYY-MM-DD'));
-    } else {
-      setActiveEndDay(moment(value).format('YYYY-MM-DD'));
+  const onClickCalendar = (value: any) => {
+    switch (dayType) {
+      case 'recruitStart':
+        setDayInputs({
+          ...dayInputs,
+          recruitStartDay: moment(value).format('YYYY-MM-DD'),
+        });
+        break;
+      case 'recruitEnd':
+        setDayInputs({
+          ...dayInputs,
+          recruitEndDay: moment(value).format('YYYY-MM-DD'),
+        });
+        break;
+      case 'activityStart':
+        setDayInputs({
+          ...dayInputs,
+          activityStartDay: moment(value).format('YYYY-MM-DD'),
+        });
+        break;
+      case 'activityEnd':
+        setDayInputs({
+          ...dayInputs,
+          activityEndDay: moment(value).format('YYYY-MM-DD'),
+        });
+        break;
     }
 
-    setOpen(false);
+    setIsCalendarOpened(false);
+  };
+
+  const FormSubmit = () => {
+    console.log(promotionInfo);
   };
 
   return (
@@ -55,6 +96,7 @@ const PromotionWriting = () => {
       <div className="header">
         <div className="title">홍보글 작성</div>
       </div>
+
       <div className="container">
         <div className="input-tag">
           <div className="name text">
@@ -62,6 +104,10 @@ const PromotionWriting = () => {
             <input
               className="input"
               placeholder="리쿠르팅 홍보글 제목을 입력해주세요"
+              value={promotionInfo.title}
+              onChange={(e) =>
+                setPromotionInfo({ ...promotionInfo, title: e.target.value })
+              }
             />
           </div>
           <div className="intro text">
@@ -69,6 +115,10 @@ const PromotionWriting = () => {
             <input
               className="input"
               placeholder="조직에 대한 한 줄 소개를 작성해주세요"
+              value={promotionInfo.intro}
+              onChange={(e) =>
+                setPromotionInfo({ ...promotionInfo, intro: e.target.value })
+              }
             />
           </div>
           <div className="user text">
@@ -76,72 +126,92 @@ const PromotionWriting = () => {
             <input
               className="input"
               placeholder="조직 홍보 대상을 기재해주세요"
+              value={promotionInfo.user}
+              onChange={(e) =>
+                setPromotionInfo({ ...promotionInfo, user: e.target.value })
+              }
             />
           </div>
-
           <div className="text">
             모집 기간
             <div className="recruit-date">
-              <div className="day" onClick={() => openCalendar(1)}>
-                {recruitStartDay}
+              <div className="day" onClick={() => openCalendar('recruitStart')}>
+                {dayInputs.recruitStartDay}
               </div>
               <div className="flow">~</div>
-              <div className="day" onClick={() => openCalendar(2)}>
-                {recruitEndDay}
+              <div className="day" onClick={() => openCalendar('recruitEnd')}>
+                {dayInputs.recruitEndDay}
               </div>
             </div>
           </div>
-
           <div className="text">
             활동 기간
             <div className="recruit-date">
-              <div className="day" onClick={() => openCalendar(3)}>
-                {activeStartDay}
+              <div
+                className="day"
+                onClick={() => openCalendar('activityStart')}
+              >
+                {dayInputs.activityStartDay}
               </div>
               <div className="flow">~</div>
-              <div className="day" onClick={() => openCalendar(4)}>
-                {activeEndDay}
+              <div className="day" onClick={() => openCalendar('activityEnd')}>
+                {dayInputs.activityEndDay}
               </div>
             </div>
           </div>
-
-          {open ? (
+          {isCalendarOpened && (
             <Calendar
               className="calendar"
-              //  onChange={onChange}
               value={new Date()}
-              onClickDay={clickDay}
+              onClickDay={onClickCalendar}
               goToRangeStartOnSelect={true}
               formatDay={(locale, date) => moment(date).format('DD')}
               locale="ko"
               showNeighboringMonth={false}
             />
-          ) : (
-            ''
           )}
-
           <div className="member text">
             모집 인원
             <input
               className="input"
               placeholder="조직 홍보 대상을 기재해주세요"
+              value={promotionInfo.memberNumber}
+              onChange={(e) =>
+                setPromotionInfo({
+                  ...promotionInfo,
+                  memberNumber: e.target.value,
+                })
+              }
             />
           </div>
-
           <div className="orga-type text">
             조직 유형
-            {RECRUITMEMBER.map((item: any) => {
+            {ORGANIZATION_TYPE.map((item, idx: any) => {
               return (
-                <label>
-                  <input type="radio" name="recruit" value={item} />
+                <label key={idx}>
+                  <input
+                    type="radio"
+                    name="recruit"
+                    value={item}
+                    onChange={(e) =>
+                      setPromotionInfo({
+                        ...promotionInfo,
+                        type: e.target.value,
+                      })
+                    }
+                  />
                   {item}
                 </label>
               );
             })}
           </div>
-
           <div className="text-area">내용</div>
-          <textarea placeholder="내용을 입력해주세요"></textarea>
+          <textarea
+            placeholder="내용을 입력해주세요"
+            onChange={(e) =>
+              setPromotionInfo({ ...promotionInfo, text: e.target.value })
+            }
+          ></textarea>
           <div className="thumnail-img">
             썸네일 이미지
             <div className="inner-img">
@@ -172,12 +242,18 @@ const PromotionWriting = () => {
               </div>
             </div>
           </div>
-
           <div className="link text">
             지원 링크
             <input
               className="input"
               placeholder="지원 폼 링크를 설정해주세요"
+              value={promotionInfo.supportLink}
+              onChange={(e) =>
+                setPromotionInfo({
+                  ...promotionInfo,
+                  supportLink: e.target.value,
+                })
+              }
             />
           </div>
           <div className="link text">
@@ -185,11 +261,20 @@ const PromotionWriting = () => {
             <input
               className="input"
               placeholder="홈페이지, SNS 등 링크를 설정해주세요 (최대 3개)"
+              value={promotionInfo.relatedLink}
+              onChange={(e) =>
+                setPromotionInfo({
+                  ...promotionInfo,
+                  relatedLink: e.target.value,
+                })
+              }
             />
           </div>
         </div>
         <div className="btn">
-          <button className="okay">작성 완료</button>
+          <button className="okay" onClick={FormSubmit}>
+            작성 완료
+          </button>
           <button className="no">작성 취소</button>
         </div>
       </div>
