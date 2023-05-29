@@ -1,3 +1,4 @@
+import { COLORS } from '@/constants/styles/color';
 import css from 'styled-jsx/css';
 
 export default css`
@@ -10,12 +11,17 @@ export default css`
     align-items: center;
     background: rgba(251, 251, 255, 0.3);
     box-shadow: 0px 0px 4px rgba(177, 177, 177, 0.25);
+
+    position: fixed;
+    top: 0;
+    left: 0;
   }
   .left {
     margin-left: 20px;
     font-size: 18px;
     line-height: 20px;
-    color: #5c59f0;
+    color: ${COLORS.primary.purple};
+    cursor: pointer;
   }
 
   .center {
@@ -33,7 +39,7 @@ export default css`
     color: #656565;
   }
   .center li:hover {
-    color: red;
+    color: ${COLORS.primary.purple};
   }
   .center .selected {
     border-bottom: 1px solid #6c6c6c;
