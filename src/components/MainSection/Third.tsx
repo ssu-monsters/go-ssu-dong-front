@@ -6,7 +6,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 import { RecruitPostDummyData } from '@/dummyData';
-import { RecruitPostType } from '@/constants/types/Recruit';
+import { RecruitPostType } from '@/constants/types/recruit';
 
 const REACT_SLIDER_SETTINGS = {
   infinite: true,

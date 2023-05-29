@@ -1,4 +1,4 @@
-import { RecruitPostType } from './constants/types/Recruit';
+import { RecruitPostType } from '@/constants/types/recruit';
 
 export const RecruitPostDummyData: RecruitPostType[] = [
   {
