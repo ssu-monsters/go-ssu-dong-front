@@ -107,7 +107,7 @@ export default css`
     margin: 0px auto;
     font-size: 27px;
     font-weight: 700;
-    margin-bottom: 80px;
+    margin-bottom: 60px;
   }
 
   .posts-container {
@@ -127,6 +127,6 @@ export default css`
     color: ${COLORS.grayscale.white};
 
     display: block;
-    margin: 66px auto 0px;
+    margin: 50px auto 0px;
   }
 `;
