@@ -172,15 +172,10 @@ export default css`
     display: flex;
     position: relative;
     justify-content: center;
-    font-family: 'NanumSquare Neo';
     font-style: normal;
     font-weight: 400;
     font-size: 18px;
     line-height: 29px;
-    /* identical to box height, or 160% */
-
-    /* Gray200 */
-
     color: #818181;
   }
 `;
