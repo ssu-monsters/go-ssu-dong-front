@@ -1,7 +1,14 @@
-import React from "react";
+import PromotionWriting from '@/components/PromotionWrting';
+import RecruitTemplate from '@/components/RecruitTemplate';
+import React from 'react';
 
 const Recruit = () => {
-  return <div> Recruit</div>;
+  return (
+    <div>
+      <PromotionWriting />;
+      <RecruitTemplate />;
+    </div>
+  );
 };
 
 export default Recruit;

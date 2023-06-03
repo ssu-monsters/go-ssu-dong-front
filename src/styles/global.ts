@@ -15,6 +15,20 @@ export default css.global`
     overflow-x: hidden;
   }
 
+  .react-calendar {
+    position: absolute;
+    top: 530px;
+    left: 730px;
+    width: 280px;
+    height: 270px;
+    border-radius: 10px;
+    filter: drop-shadow(0px 2px 8px rgba(0, 0, 0, 0.15));
+    border: none;
+    float: right;
+    margin-right: 16px;
+    z-index: 1;
+  }
+
   * {
     box-sizing: border-box;
   }
