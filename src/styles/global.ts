@@ -1,39 +1,17 @@
+import { COLORS } from '@/constants/styles/color';
 import css from 'styled-jsx/css';
 
 export default css.global`
-  /* @font-face {
-    font-family: 'NanumSquare Neo';
-    font-style: normal;
-    font-weight: 350;
-    src: url('../assets/fonts/NanumSquareNeoTTF-cBd.woff2') format('woff2');
+  html {
+    scroll-snap-type: y mandatory;
   }
-  @font-face {
-    font-family: 'NanumSquare Neo';
-    font-weight: 400;
-    font-style: normal;
-    src: url('../assets/fonts/NanumSquareNeoTTF-bRg.woff2') format('woff2');
-  }
-
-  @font-face {
-    font-family: 'NanumSquare Neo';
-    font-style: normal;
-    font-weight: 700;
-    src: url('../assets/fonts/NanumSquareNeoTTF-cBd.woff2') format('woff2');
-  }
-  @font-face {
-    font-family: 'NanumSquare Neo';
-    font-style: normal;
-    font-weight: 800;
-    src: url('../assets/fonts/NanumSquareNeoTTF-dEb.woff2') format('woff2');
-  } */
 
   body {
-    margin: auto;
+    margin: 0;
     font-family: 'NanumSquareNeo';
-    color: #2f384a;
+    background-color: ${COLORS.background};
     width: 100%;
     box-sizing: border-box;
-    min-width: 900px;
     overflow-x: hidden;
   }
 
@@ -49,5 +27,13 @@ export default css.global`
     float: right;
     margin-right: 16px;
     z-index: 1;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  button {
+    cursor: pointer;
   }
 `;
