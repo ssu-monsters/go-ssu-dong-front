@@ -4,7 +4,7 @@ import UserInfo from '@/components/UserInfo';
 
 const Support = () => {
   const PAGENAME = 'support';
-  const USERINFO = ['배현서', 'qogustj@naver.com', '학생', 24];
+  const USERINFO = ['user', '배현서', 'qogustj@naver.com', '학생', 24];
 
   return (
     <>

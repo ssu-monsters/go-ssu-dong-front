@@ -28,6 +28,11 @@ export default css`
     color: #282828;
   }
 
+  .semi .type {
+    width: 100px;
+    padding-right: 30px;
+  }
+
   .user-info .name {
     font-size: 25px;
     line-height: 40px;
@@ -49,18 +54,18 @@ export default css`
   .email {
     display: flex;
     align-items: center;
-    margin-right: 55px;
+    width: 100px;
   }
 
   .indentity {
     display: flex;
+    width: 100px;
     align-items: center;
-    margin-right: 70px;
   }
   .age {
     display: flex;
+    width: 100px;
     align-items: center;
-    margin-right: 70px;
   }
 
   .user-info .text {

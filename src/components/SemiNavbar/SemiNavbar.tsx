@@ -12,7 +12,7 @@ interface NavItems {
 const SemiNavbar = ({ content }: MyComponentProps) => {
   const navItems: NavItems = {
     support: ['나의 프로필', '지원 현황', '지원서 관리'],
-    recruit: ['조직 정보', '리크루팅 관리', '멤버 관리'],
+    recruit: ['리크루팅 관리', '조직 정보', '멤버 관리'],
   };
 
   const [active, setActive] = useState(0);
