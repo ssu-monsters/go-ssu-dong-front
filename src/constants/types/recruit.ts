@@ -1,7 +1,14 @@
+export type OrganizationType =
+  | '동아리'
+  | '대외활동'
+  | '스타트업'
+  | '소모임'
+  | '기타';
+
 export interface RecruitPostType {
   title: string;
   introduce: string;
-  organizationType: '동아리' | '대외활동' | '스타트업' | '소모임' | '기타';
+  organizationType: OrganizationType;
   target: string;
   recruitStartDate: string;
   recruitEndDate: string;
