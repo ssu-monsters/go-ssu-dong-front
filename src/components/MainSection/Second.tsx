@@ -7,12 +7,12 @@ import styles from './MainSection.style';
 
 const SECTION_INFO = {
   apply: {
-    img: ApplyImageSrc,
+    img: <ApplyImageSrc />,
     title: '다양한 조직의 멤버가 되어보세요!',
     subTitle: '여러 리쿠르팅 홍보글들을 탐색하고, 빠르게 지원할 수 있어요',
   },
   recruit: {
-    img: RecruitImageSrc,
+    img: <RecruitImageSrc />,
     title: '조직의 인재를 효율적으로 모집해보아요!',
     subTitle: ' 리쿠르팅 프로세스를 통합적으로 관리할 수 있어요',
   },
@@ -23,7 +23,7 @@ const Second = () => {
     <>
       <div className="section second-section">
         <div className="intro-wrap">
-          <Image src={SECTION_INFO.apply.img} alt="apply-img" />
+          {SECTION_INFO.apply.img}
           <div className="apply-intro-text">
             <div className="title">{SECTION_INFO.apply.title}</div>
             <div className="sub-title">{SECTION_INFO.apply.subTitle}</div>
@@ -34,7 +34,7 @@ const Second = () => {
             <div className="title">{SECTION_INFO.recruit.title}</div>
             <div className="sub-title">{SECTION_INFO.recruit.subTitle}</div>
           </div>
-          <Image src={SECTION_INFO.recruit.img} alt="recruit-img" />
+          {SECTION_INFO.recruit.img}
         </div>
       </div>
       <style jsx>{styles}</style>
