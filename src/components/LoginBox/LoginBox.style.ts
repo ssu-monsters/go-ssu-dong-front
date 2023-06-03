@@ -11,10 +11,21 @@ export default css`
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    > svg {
+      margin: 16px;
+    }
   }
 
-  .logo {
-    height: 159px;
+  .selects-wrap {
+    margin: 5px auto 18px;
+  }
+
+  .selects-wrap label {
+    font-size: 13px;
+    font-weight: 400;
+    color: ${COLORS.grayscale.gray300};
+    margin: 0px 7px;
   }
 
   input,

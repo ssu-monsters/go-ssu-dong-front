@@ -1,9 +1,21 @@
+import Logo from '@/assets/images/loginbox-logo.svg';
+
 import styles from './LoginBox.style';
 
 const LoginBox = () => (
   <>
     <div className="box-wrap">
-      <div className="logo">logo</div>
+      <Logo />
+      <div className="selects-wrap">
+        <label>
+          <input type="radio" name="type" value="지원자" onChange={() => {}} />
+          지원자
+        </label>
+        <label>
+          <input type="radio" name="type" value="지원자" onChange={() => {}} />
+          관리자
+        </label>
+      </div>
       <input
         className="login-input"
         name="id"
