@@ -7,6 +7,7 @@ import 'slick-carousel/slick/slick-theme.css';
 
 import { RecruitPostDummyData } from '@/dummyData';
 import { RecruitPostType } from '@/constants/types/recruit';
+import { useRouter } from 'next/router';
 
 const REACT_SLIDER_SETTINGS = {
   infinite: true,
@@ -19,6 +20,7 @@ const REACT_SLIDER_SETTINGS = {
 };
 
 const Third = () => {
+  const router = useRouter();
   return (
     <>
       <div className="section third-section">
@@ -35,7 +37,10 @@ const Third = () => {
             />
           ))}
         </Slider>
-        <button className="search-more-button" onClick={() => {}}>
+        <button
+          className="search-more-button"
+          onClick={() => router.push('/promotion')}
+        >
           더 많은 리쿠르팅 글 보기
         </button>
       </div>
