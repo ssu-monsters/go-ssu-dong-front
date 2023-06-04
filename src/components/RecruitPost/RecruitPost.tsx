@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import styles from './RecruitPost.style';
+import { useRouter } from 'next/router';
 
 interface RecruitPostProps {
   //id:number;
@@ -8,21 +9,28 @@ interface RecruitPostProps {
   thumbnailImg: string;
 }
 
-const RecruitPost = ({ title, introduce, thumbnailImg }: RecruitPostProps) => (
-  <>
-    <div className="post-wrap">
-      <Image
-        src={thumbnailImg}
-        width={330}
-        height={330}
-        alt={`${title}-post-img`}
-      />
-      <div className="title">{title}</div>
-      <div className="introduce">{introduce}</div>
-    </div>
+const RecruitPost = ({ title, introduce, thumbnailImg }: RecruitPostProps) => {
+  const router = useRouter();
+  const DetailPage = (title: string) => {
+    router.push(`/promotion/${title}`);
+  };
 
-    <style jsx>{styles}</style>
-  </>
-);
+  return (
+    <>
+      <div className="post-wrap" onClick={() => DetailPage(title)}>
+        <Image
+          src={thumbnailImg}
+          width={330}
+          height={330}
+          alt={`${title}-post-img`}
+        />
+        <div className="title">{title}</div>
+        <div className="introduce">{introduce}</div>
+      </div>
+
+      <style jsx>{styles}</style>
+    </>
+  );
+};
 
 export default RecruitPost;
