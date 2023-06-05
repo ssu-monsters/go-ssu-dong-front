@@ -42,7 +42,8 @@ export default css`
     font-weight: 400;
     font-size: 18px;
     color: ${COLORS.primary.purple};
-    width: 89px;
+
+    width: fit-content;
     height: 39px;
     display: flex;
     align-items: center;
