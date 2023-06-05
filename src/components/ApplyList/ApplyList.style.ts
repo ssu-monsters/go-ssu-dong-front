@@ -6,10 +6,10 @@ export default css`
     height: 500px;
     margin: auto;
     background-color: white;
+    margin-top: 100px;
   }
 
   .title {
-    font-family: 'NanumSquare Neo';
     font-style: normal;
     font-weight: 400;
     font-size: 18px;
@@ -36,7 +36,6 @@ export default css`
     height: 45px;
     display: flex;
 
-    font-family: 'NanumSquare Neo';
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
@@ -63,7 +62,6 @@ export default css`
   }
 
   .list-item {
-    font-family: 'NanumSquare Neo';
     font-style: normal;
     font-weight: 400;
     font-size: 14px;

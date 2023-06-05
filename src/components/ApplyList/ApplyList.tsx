@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import styles from './SupportList.style';
+import styles from './ApplyList.style';
 import { useState } from 'react';
 
 interface MyComponentProps {
@@ -15,7 +15,7 @@ const current = [
   '지원 현황',
 ];
 
-const SupportList = ({ content }: MyComponentProps) => {
+const ApplyList = ({ content }: MyComponentProps) => {
   return (
     <div>
       <div className="container">
@@ -53,4 +53,4 @@ const SupportList = ({ content }: MyComponentProps) => {
   );
 };
 
-export default SupportList;
+export default ApplyList;
