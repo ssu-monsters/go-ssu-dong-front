@@ -16,13 +16,13 @@ const Navbar = ({ children }: NavBarProps) => {
 
   const router = useRouter();
 
-  const selectTabItem = (item: any) => {
+  const selectTabItem = (item: string) => {
     if (item === '홍보글') {
       setActiveTab('홍보글');
       router.push('/promotion');
     } else if (item === '지원') {
       setActiveTab('지원');
-      router.push('/support');
+      router.push('/apply');
     } else if (item === '모집') {
       setActiveTab('모집');
       router.push('/recruit');
@@ -38,11 +38,11 @@ const Navbar = ({ children }: NavBarProps) => {
     setIsDropdownOpened(!isDropdownOpened);
   };
 
-  const onLogin = (text: any) => {
+  const onLogin = () => {
     setIsLoggedIn(!isLoggedIn);
   };
 
-  const onLogout = (text: any) => {
+  const onLogout = () => {
     setIsLoggedIn(!isLoggedIn);
     setIsDropdownOpened(!isDropdownOpened);
   };
@@ -88,32 +88,11 @@ const Navbar = ({ children }: NavBarProps) => {
                 <div className="name" onClick={SpaceMypage}>
                   배현서
                 </div>
-                {isDropdownOpened ? (
-                  <div>
-                    <div className="drop-triangle"></div>
-                    <div className="drop">
-                      <div className="drop-container">
-                        <div
-                          className="text"
-                          style={{ textAlign: 'center', lineHeight: '28px' }}
-                        >
-                          현서님, 좋은 조직 찾으시길 바랄게요 ^^
-                        </div>
-                        <div className="control">
-                          <div style={{ marginBottom: '10px' }}>설정</div>
-                          <div onClick={onLogout}>로그아웃</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                ) : (
-                  ''
-                )}
               </div>
             )}
           </div>
         </div>
-        {children}
+        <div style={{ marginTop: 55 }}>{children}</div>
       </div>
       <style jsx>{styles}</style>
     </>

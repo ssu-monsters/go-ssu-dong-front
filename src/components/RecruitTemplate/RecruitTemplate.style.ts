@@ -2,53 +2,29 @@ import { COLORS } from '@/constants/styles/color';
 import css from 'styled-jsx/css';
 
 export default css`
-  .title {
+  .container {
+    max-width: 1280px;
+    margin: auto;
+    height: 1000px;
+    margin-top: 66px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 60px;
-
-    > p {
-      margin: 0;
-      font-weight: 700;
-      font-size: 25px;
-      line-height: 40px;
-      color: ${COLORS.grayscale.gray600};
-    }
+    position: relative;
+    background-color: red;
   }
 
-  .menus-wrap {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 76px auto 0px;
+  .title {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 40px;
+    margin-bottom: 30px;
   }
 
-  .menu-wrap {
-    width: 230px;
-    margin: 0px 45px;
-    cursor: pointer;
-  }
-
-  .image-container {
-    width: 230px;
-    height: 230px;
-    border-radius: 115px;
-    background-color: #fff6d7;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .intro-test {
-    text-align: center;
-    margin-top: 30px;
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 32px;
-  }
-
-  .highlight {
-    color: ${COLORS.primary.purple};
+  .group-name {
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 40px;
+    color: ${COLORS.grayscale.gray400};
   }
 `;

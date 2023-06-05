@@ -6,7 +6,7 @@ interface MyComponentProps {
 
 const UserInfo = ({ info }: MyComponentProps) => {
   return (
-    <div>
+    <>
       <div className="container">
         <div className="user-image"></div>
         <div className="user-info">
@@ -41,9 +41,8 @@ const UserInfo = ({ info }: MyComponentProps) => {
           </div>
         </div>
       </div>
-
       <style jsx>{styles}</style>
-    </div>
+    </>
   );
 };
 

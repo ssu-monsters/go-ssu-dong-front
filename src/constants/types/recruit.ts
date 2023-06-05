@@ -19,3 +19,5 @@ export interface RecruitPostType {
   recruitURL: string;
   thumbnailImg: string;
 }
+
+export type PageTransformType = 'promotion' | 'document' | 'interview';

@@ -35,7 +35,6 @@ export default css`
   }
 
   .left-text {
-    font-family: 'NanumSquare Neo';
     font-style: normal;
   }
 
@@ -64,7 +63,7 @@ export default css`
     height: 35px;
     border: 1px solid #818181;
     border-radius: 50px;
-    font-family: 'NanumSquare Neo';
+
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
@@ -82,7 +81,7 @@ export default css`
     bottom: 0;
     right: 0;
     color: #202020;
-    font-family: 'NanumSquare Neo';
+
     font-style: normal;
     font-weight: 400;
     font-size: 14px;

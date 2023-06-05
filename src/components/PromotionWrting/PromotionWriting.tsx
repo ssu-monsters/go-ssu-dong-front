@@ -37,7 +37,7 @@ const PromotionWriting = () => {
     type: '',
     text: '',
     thumnail: '',
-    supportLink: '',
+    applyLink: '',
     relatedLink: '',
   });
 
@@ -241,9 +241,9 @@ const PromotionWriting = () => {
             지원 링크
             <input
               className="input"
-              name="supportLink"
+              name="applyLink"
               placeholder="지원 폼 링크를 설정해주세요"
-              value={promotionInfo.supportLink}
+              value={promotionInfo.applyLink}
               onChange={onChangePromotionInfo}
             />
           </div>
