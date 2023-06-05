@@ -7,7 +7,6 @@ const register = () => {
       <RegisterBox />
       <style jsx>{`
         div {
-          font-family: 'NanumSquareNeo';
           max-width: 1280px;
           margin: auto;
           margin-top: 66px;
