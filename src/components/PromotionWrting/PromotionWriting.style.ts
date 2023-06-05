@@ -14,7 +14,6 @@ export default css`
   }
 
   .title {
-    font-family: 'NanumSquare Neo';
     font-style: normal;
     font-weight: 800;
     font-size: 40px;
@@ -24,7 +23,6 @@ export default css`
   }
 
   .container {
-    font-family: 'NanumSquare Neo';
     font-style: normal;
     font-weight: 700;
     font-size: 18px;
@@ -79,7 +77,7 @@ export default css`
   label {
     display: flex;
     align-items: center;
-    font-family: 'NanumSquare Neo';
+
     font-style: normal;
     font-weight: 400;
     font-size: 18px;
@@ -116,7 +114,6 @@ export default css`
   }
 
   .img-text {
-    font-family: 'NanumSquare Neo';
     font-style: normal;
     font-weight: 400;
     font-size: 18px;
