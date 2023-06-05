@@ -1,3 +1,4 @@
+import { COLORS } from '@/constants/styles/color';
 import css from 'styled-jsx/css';
 
 export default css`
@@ -10,14 +11,11 @@ export default css`
     box-shadow: 0px 0px 6px #d0cfff;
     border-radius: 40px;
     margin: auto;
-    margin-top: 30px;
-    font-family: 'NanumSquare Neo';
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
     line-height: 15px;
-
-    color: #5c59f0;
+    color: ${COLORS.primary.purple};
   }
   .content {
     width: 317px;

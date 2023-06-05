@@ -1,60 +1,39 @@
 import React, { useEffect, useState } from 'react';
 import styles from './SemiNavbar.style';
 import { useRouter } from 'next/router';
+import { applySubMenu, recruitSubMenu } from '@/constants/navigation';
 interface MyComponentProps {
-  content: string;
-}
-interface NavItems {
-  support: string[];
-  recruit: string[];
+  content: 'apply' | 'recruit';
 }
 
 const SemiNavbar = ({ content }: MyComponentProps) => {
-  const navItems: NavItems = {
-    support: ['나의 프로필', '지원 현황', '지원서 관리'],
-    recruit: ['리크루팅 관리', '조직 정보', '멤버 관리'],
+  const router = useRouter();
+  const navItems = {
+    apply: applySubMenu,
+    recruit: recruitSubMenu,
   };
 
   const [active, setActive] = useState(0);
-  const router = useRouter();
-
   const ActiveItem = (idx: number) => {
-    if (idx === 0) {
-      setActive(0);
-      router.push(`/${content}`);
-    } else if (idx === 1) {
-      setActive(1);
-      router.push(`/${content}/${idx}`);
-    } else {
-      setActive(2);
-      router.push(`/${content}/${idx}`);
-    }
+    setActive(idx);
+    router.push(`/${content}/${navItems[content][idx].url}`);
   };
-
-  useEffect(() => {
-    const pageId = router.query.id;
-    if (pageId === '1') {
-      setActive(1);
-    } else if (pageId === '2') {
-      setActive(2);
-    }
-  }, [active, router.query.id]);
 
   return (
     <>
       <div className="container">
         <div className="content">
-          {navItems[content as keyof NavItems].map((item, idx) => {
-            //{{content ==="support" ? SEMINAVSUPPORT:SEMINAVRECRUIT }.map((item)=> ... )} 이런식으로 하고 싶었는데 안되더라고ㅇㅅ
+          {navItems[content].map((item, idx) => {
+            //{{content ==="apply" ? SEMINAVSUPPORT:SEMINAVRECRUIT }.map((item)=> ... )} 이런식으로 하고 싶었는데 안되더라고ㅇㅅ
             return (
               <div
-                key={item}
+                key={item.url}
                 className={
                   active === idx ? 'content-item-active' : 'content-item'
                 }
                 onClick={() => ActiveItem(idx)}
               >
-                {item}
+                {item.name}
               </div>
             );
           })}
