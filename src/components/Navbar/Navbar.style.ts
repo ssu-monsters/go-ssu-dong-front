@@ -9,7 +9,7 @@ export default css`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: rgba(251, 251, 255, 0.3);
+    background-color: ${COLORS.grayscale.white};
     box-shadow: 0px 0px 4px rgba(177, 177, 177, 0.25);
 
     position: fixed;
@@ -42,7 +42,7 @@ export default css`
     color: ${COLORS.primary.purple};
   }
   .center .selected {
-    border-bottom: 1px solid #6c6c6c;
+    border-bottom: 1px solid #656565;
   }
   .center li p {
     margin-left: 7px;
