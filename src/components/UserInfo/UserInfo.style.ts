@@ -7,6 +7,7 @@ export default css`
     margin: auto;
     display: flex;
     align-items: center;
+    margin-top: 100px;
   }
   .user-image {
     width: 300px;
@@ -20,7 +21,7 @@ export default css`
     height: 245px;
     background-color: white;
     margin-left: 100px;
-    font-family: 'NanumSquare Neo';
+
     font-style: normal;
     font-weight: 700;
     font-size: 18px;
