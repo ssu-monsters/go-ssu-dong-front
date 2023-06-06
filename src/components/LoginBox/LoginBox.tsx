@@ -13,8 +13,6 @@ const LoginBox = () => {
     password: '',
   });
 
-  console.log(loginInput);
-
   const { type, account, password } = loginInput;
 
   const loginInputHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
