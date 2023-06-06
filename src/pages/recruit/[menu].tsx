@@ -6,18 +6,32 @@ import RecruitTemplate from '@/components/RecruitTemplate';
 
 import { organizationDummyData } from '@/dummyData';
 import { RecruitSubMenuType } from '@/constants/navigation';
+import ApplicantList from '@/components/ApplicantList';
+import { ApplicantData } from '@/dummyData';
 
 const Recruit = () => {
   const router = useRouter();
-  const menu = router.query.menu as RecruitSubMenuType;
+  const menu = router.query.menu as
+    | RecruitSubMenuType
+    | 'manage-members'
+    | 'first-select'
+    | 'final-select';
 
   function renderRecruitMenu() {
-    if (menu === 'process') {
-      return <RecruitTemplate />;
-    } else if (menu === 'profile') {
-      return <UserInfo info={organizationDummyData} />;
-    } else if (menu === 'members') {
-      return <div>members</div>;
+    switch (menu) {
+      case 'process': {
+        return <RecruitTemplate />;
+      }
+      case 'profile': {
+        return <UserInfo info={organizationDummyData} />;
+      }
+      case 'members': {
+        alert('멤버 관리는 준비중이에요!');
+        break;
+      }
+      case 'manage-members': {
+        return <ApplicantList content={ApplicantData} />;
+      }
     }
   }
 

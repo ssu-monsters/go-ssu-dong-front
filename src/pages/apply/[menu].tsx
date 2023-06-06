@@ -5,7 +5,8 @@ import SemiNavbar from '@/components/SemiNavbar';
 import UserInfo from '@/components/UserInfo';
 
 import { ApplySubMenuType } from '@/constants/navigation';
-import { ApplyDummyData, userDummyData } from '@/dummyData';
+import { ApplyDocumentData, ApplyDummyData, userDummyData } from '@/dummyData';
+import DocumentList from '@/components/DocumentList';
 
 const Apply = () => {
   const router = useRouter();
@@ -17,7 +18,7 @@ const Apply = () => {
     } else if (menu === 'status') {
       return <ApplyList content={ApplyDummyData} />;
     } else if (menu === 'documents') {
-      return <>documents</>;
+      return <DocumentList content={ApplyDocumentData} />;
     }
   }
 
