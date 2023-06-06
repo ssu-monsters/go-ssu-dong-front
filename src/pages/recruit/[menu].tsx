@@ -11,6 +11,7 @@ import { ApplicantData } from '@/dummyData';
 
 const Recruit = () => {
   const router = useRouter();
+
   const menu = router.query.menu as
     | RecruitSubMenuType
     | 'manage-members'
@@ -33,6 +34,7 @@ const Recruit = () => {
         return <ApplicantList content={ApplicantData} />;
       }
     }
+    return <></>;
   }
 
   return (

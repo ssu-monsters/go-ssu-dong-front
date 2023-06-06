@@ -5,6 +5,9 @@ import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import moment from 'moment';
 
+import AddIcon from '@/assets/images/add.svg';
+import { useRouter } from 'next/router';
+
 const ORGANIZATION_TYPE = ['동아리', '대외할동', '스타트업', '소모임', '기타'];
 
 type DayType =
@@ -14,7 +17,7 @@ type DayType =
   | 'activityEndDay';
 
 const PromotionWriting = () => {
-  // let inputRef: any;
+  const router = useRouter();
   const inputRef = useRef<HTMLInputElement>();
 
   const [imageSrc, setImageSrc] = useState<string>('');
@@ -214,9 +217,8 @@ const PromotionWriting = () => {
                 {ChangeImg ? (
                   <img width={330} height={400} src={imageSrc} />
                 ) : (
-                  <img
+                  <AddIcon
                     className="add"
-                    src="add.svg"
                     onClick={() => {
                       inputRef.current?.click();
                       setChangeImg(true);
@@ -262,7 +264,9 @@ const PromotionWriting = () => {
           <button className="okay" onClick={FormSubmit}>
             작성 완료
           </button>
-          <button className="no">작성 취소</button>
+          <button className="no" onClick={() => router.back()}>
+            작성 취소
+          </button>
         </div>
       </div>
 

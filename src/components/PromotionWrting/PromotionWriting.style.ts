@@ -53,12 +53,14 @@ export default css`
     width: 100%;
     max-width: 800px;
     height: 35px;
-    font-size: 15px;
+    font-size: 13px;
+    font-weight: 400;
     border: 0;
     border-radius: 10px;
     outline: none;
     padding-left: 10px;
-    background-color: rgb(233, 233, 233);
+    background-color: #efefef;
+    font-family: 'NanumSquareNeo';
   }
 
   .text-area {
@@ -66,12 +68,16 @@ export default css`
   }
 
   textarea {
-    width: 100%;
+    width: 900px;
     height: 18rem;
-    border: 2px solid #5c59f0;
+    /*border: 2px solid #5c59f0;*/
+    border: none;
+    border-radius: 5px;
     resize: none;
     background-color: #efefef;
     margin-bottom: 30px;
+    padding: 15px;
+    font-family: 'NanumSquareNeo';
   }
 
   label {
@@ -100,10 +106,13 @@ export default css`
   .add-image {
     width: 330px;
     height: 400px;
-    background: #dfdfdf;
+    background-color: #efefef;
     opacity: 0.5;
     border-radius: 5px;
     margin-right: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .add-image .add {
@@ -125,7 +134,7 @@ export default css`
     width: 350px;
     display: flex;
     justify-content: space-between;
-    margin-top: 200px;
+    margin-top: 50px;
     margin-bottom: 100px;
   }
 
@@ -149,7 +158,7 @@ export default css`
   }
 
   .recruit-date {
-    width: 90%;
+    width: 800px;
     display: flex;
     text-align: center;
     display: flex;

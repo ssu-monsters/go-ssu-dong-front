@@ -21,3 +21,11 @@ export interface RecruitPostType {
 }
 
 export type PageTransformType = 'promotion' | 'document' | 'interview';
+
+export interface ProcessStepType {
+  step: number;
+  title: string;
+  content: string;
+  btn: string;
+  path: string;
+}

@@ -11,6 +11,7 @@ export default css`
     align-items: center;
     color: #818181;
     margin-bottom: 30px;
+    cursor: pointer;
   }
 
   .active {
@@ -42,7 +43,7 @@ export default css`
     font-weight: 700;
     font-size: 18px;
     line-height: 20px;
-    margin-bottom: 13px;
+    margin-bottom: 15px;
   }
 
   .content {
@@ -96,5 +97,9 @@ export default css`
 
   .right-btn img {
     margin-left: 3px;
+  }
+
+  :global(svg) {
+    margin-left: 5px;
   }
 `;
