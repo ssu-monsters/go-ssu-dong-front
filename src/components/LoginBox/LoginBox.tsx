@@ -46,7 +46,7 @@ const LoginBox = () => {
           <label>
             <input
               type="radio"
-              name="type  "
+              name="type"
               value="관리자"
               onChange={loginInputHandler}
             />
