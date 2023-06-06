@@ -179,6 +179,29 @@ export const ApplyDocumentData = [
   },
 ];
 
+export const ApplicantData = [
+  {
+    name: '배현서',
+    paper: '숭실대 소프트웨어학부 배현서 지원서',
+    date: '2023.04.11',
+  },
+  {
+    name: '배현서',
+    paper: '숭실대 소프트웨어학부 배현서 지원서',
+    date: '2023.04.11',
+  },
+  {
+    name: '배현서',
+    paper: '숭실대 소프트웨어학부 배현서 지원서',
+    date: '2023.04.11',
+  },
+  {
+    name: '배현서',
+    paper: '숭실대 소프트웨어학부 배현서 지원서',
+    date: '2023.04.11',
+  },
+];
+
 export const userDummyData = [
   'user',
   '배현서',
