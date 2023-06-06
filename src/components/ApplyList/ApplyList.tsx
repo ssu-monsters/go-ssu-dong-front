@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import styles from './ApplyList.style';
 import { useState } from 'react';
+import Table from '../Table';
 
 interface MyComponentProps {
   content: any[];
@@ -22,31 +23,11 @@ const ApplyList = ({ content }: MyComponentProps) => {
         <div className="title">
           <div className="user-name">배현서 </div> 님의 지원현황
         </div>
-        <div className="list">
-          <div className="category">
-            {current.map((item, idx) => {
-              return <div key={idx}>{item}</div>;
-            })}
-          </div>
-          <div className="list-item">
-            {content.map((item, idx) => {
-              return (
-                <li key={idx}>
-                  <div className="list-in">
-                    <div>{idx + 1}</div>
-                    <div>{item.name}</div>
-                    <div>{item.paper}</div>
-
-                    <div>{item.date}</div>
-                    <div>{item.type}</div>
-
-                    <div>{item.result}</div>
-                  </div>
-                </li>
-              );
-            })}
-          </div>
-        </div>
+        <Table
+          fieldNameList={current}
+          fieldWidthList={['70px', '240px', '317px', '140px', '115px', '118px']}
+          content={content}
+        />
       </div>
       <style jsx>{styles}</style>
     </div>
