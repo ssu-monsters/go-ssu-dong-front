@@ -1,7 +1,7 @@
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
 import { ApiError, ApiResponse } from '@/constants/types/api';
 
-const API_URL = 'http://localhost:8080';
+const API_URL = 'http://localhost:8081';
 
 const API: AxiosInstance = axios.create({
   baseURL: API_URL,
@@ -11,7 +11,7 @@ const API: AxiosInstance = axios.create({
   },
 });
 
-function handleError(error: unknown): ApiError {
+function handleError(error: any): ApiError {
   // AxiosError로 타입 추론
   if (axios.isAxiosError(error)) {
     // 요청 성공, 응답 성공
