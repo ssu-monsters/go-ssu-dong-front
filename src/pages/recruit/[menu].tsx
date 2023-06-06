@@ -9,16 +9,19 @@ import { RecruitSubMenuType } from '@/constants/navigation';
 
 const Recruit = () => {
   const router = useRouter();
-  const menu = router.query.menu as RecruitSubMenuType;
+  const menu = router.query.menu;
 
   function renderRecruitMenu() {
     if (menu === 'process') {
       return <RecruitTemplate />;
-    } else if (menu === 'profile') {
+    }
+    if (menu === 'profile') {
       return <UserInfo info={organizationDummyData} />;
-    } else if (menu === 'members') {
+    }
+    if (menu === 'members') {
       return <div>members</div>;
     }
+    return <></>;
   }
 
   return (
