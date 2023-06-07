@@ -61,6 +61,12 @@ export default css`
     margin-bottom: 40px;
   }
 
+  .apply-button {
+    background-color: ${COLORS.grayscale.white};
+    color: ${COLORS.primary.purple};
+    border: 1px solid ${COLORS.primary.purple};
+  }
+
   .register-section {
     display: flex;
     align-items: center;
@@ -72,5 +78,32 @@ export default css`
   .register-button {
     font-weight: 700;
     color: ${COLORS.primary.purple};
+  }
+
+  .user-info {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .user-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: #d9d9d9;
+  }
+
+  .user-name {
+    font-weight: 400;
+    font-size: 20px;
+    color: ${COLORS.grayscale.gray700};
+    margin-top: 20px;
+    margin-bottom: 38px;
+  }
+
+  .hl {
+    font-weight: 800;
   }
 `;
