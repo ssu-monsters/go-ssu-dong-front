@@ -4,7 +4,7 @@ import styles from './LoginBox.style';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { loginAsync } from '@/api/auth';
-
+import { getAsync } from '@/api/API';
 const LoginBox = () => {
   const router = useRouter();
   const [loginInput, setLoginInput] = useState({
@@ -23,10 +23,14 @@ const LoginBox = () => {
   const loginHandler = async () => {
     const accountType = type === '지원자' ? 'general' : 'organization';
     const response = await loginAsync(accountType, account, password);
+
     console.log(response);
   };
 
-  const spaceRegister = () => {
+  const spaceRegister = async () => {
+    const res = await getAsync('/user/get?account=20192995');
+
+    console.log(res);
     router.push('/register');
   };
   return (
