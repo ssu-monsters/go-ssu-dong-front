@@ -3,6 +3,7 @@ import styles from './PromotionTemplate.style';
 import CategoryTag from '../CategoryTag';
 import { RecruitPostDummyData } from '@/dummyData';
 import RecruitPost from '../RecruitPost';
+import PromotionSlider from '../PromotionSlider';
 
 const ORG_LIST: Array<OrganizationType> = [
   '동아리',
@@ -15,7 +16,9 @@ const ORG_LIST: Array<OrganizationType> = [
 const PromotionTemplate = () => (
   <>
     <div className="template-wrapper">
-      <div className="carousel"></div>
+      <div className="carousel">
+        <PromotionSlider />
+      </div>
       <div className="title">전체 리쿠르팅</div>
       <div className="tags-container">
         {ORG_LIST.map((org) => (
