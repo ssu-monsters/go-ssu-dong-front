@@ -62,8 +62,8 @@ const DetailPromotion = ({ title, detailData }: MyComponentProps) => {
               </div>
               <div className="inner-right">
                 <img
-                  width={400}
-                  height={410}
+                  width={410}
+                  height={400}
                   src={detailData?.thumbnailImage}
                 />
               </div>

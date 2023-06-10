@@ -23,10 +23,13 @@ const Promotion = () => {
   };
 
   useEffect(() => {
+    console.log(param);
+    console.log(typeof param);
     // param이 존재하는데 new가 아닐 때. 즉 홍보글 상세 페이지인 경우
     if (param && param !== 'new') {
       const data = getDetailedInfo();
       setDetailData(data);
+      console.log('sss');
     }
   }, []);
 
@@ -38,3 +41,9 @@ const Promotion = () => {
 };
 
 export default Promotion;
+
+export async function getServerSideProps(context: any) {
+  return {
+    props: {},
+  };
+}

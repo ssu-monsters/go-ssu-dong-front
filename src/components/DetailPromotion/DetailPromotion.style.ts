@@ -91,9 +91,12 @@ export default css`
     font-weight: 400;
     font-size: 18px;
     line-height: 20px;
+    width: 250px;
     color: #464646;
   }
-
+  .inner-right img {
+    border-radius: 10px;
+  }
   .btn {
     height: 65px;
     font-weight: 700;

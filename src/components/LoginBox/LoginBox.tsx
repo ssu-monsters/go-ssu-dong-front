@@ -54,11 +54,11 @@ const LoginBox = () => {
 
   const spaceRegister = async () => {
     // const res = await getAsync('/user/get?account=20192995');
-    const res = await allpromotionAsync();
-    console.log(res.result);
+    // const res = await allpromotionAsync();
+    // console.log(res.result);
     // setUser(res);
 
-    //router.push('/register');
+    router.push('/register');
   };
 
   const spaceLogout = () => {
