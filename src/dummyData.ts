@@ -205,22 +205,22 @@ export const ApplicantData = [
   },
 ];
 
-export const userDummyData = [
-  'user',
-  '배현서',
-  'qogustj@naver.com',
-  '학생',
-  24,
-];
+export const userDummyData = {
+  type: 'user',
+  name: '배현서',
+  email: 'qogustj@naver.com',
+  sinbun: '학생',
+  age: 24,
+};
 
-export const organizationDummyData = [
-  'organization',
-  'SSC',
-  '축구동아리',
-  '배현서',
-  'qogustj@naver.com',
-  '숭실대학교',
-];
+export const organizationDummyData = {
+  type: 'organization',
+  name: 'SSC',
+  subtype: '축구동아리',
+  represent: '배현서',
+  email: 'qogustj@naver.com',
+  school: '숭실대학교',
+};
 
 export const promotionSliderDummyData = [
   {

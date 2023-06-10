@@ -4,7 +4,7 @@ export interface ApiError {
   /** 서버에서 전달하는 에러 메세지 */
   errorMessage: string;
   /** 에러 관련 정보 (서버에서 받아오는 것 X) */
-  errorInfo?: unknown;
+  errorInfo?: any;
 }
 
 export type ApiResponse<T> = Promise<

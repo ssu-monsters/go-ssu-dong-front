@@ -2,20 +2,20 @@ import Logo from '@/assets/images/loginbox-logo.svg';
 
 import styles from './LoginBox.style';
 import { useRouter } from 'next/router';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { loginAsync } from '@/api/auth';
 
 import { getAsync } from '@/api/API';
 
 import { useRecoilState } from 'recoil';
-import { isLoggedInState } from '@/atoms/auth';
+import { isLoggedInState, userState } from '@/atoms/auth';
 
 const username = '배현서'; // TODO
 
 const LoginBox = () => {
   const router = useRouter();
   const [isLoggedIn, setIsLoggedIn] = useRecoilState(isLoggedInState);
-
+  const [user, setUser] = useRecoilState(userState);
   const [loginInput, setLoginInput] = useState({
     type: '지원자',
     account: '',
@@ -33,19 +33,42 @@ const LoginBox = () => {
     const accountType = type === '지원자' ? 'general' : 'organization';
     const response = await loginAsync(accountType, account, password);
 
-    console.log(response);
+    // console.log(response);
+    // const response = await getAsync<any>('/user/get?account=20192995');
+
+    console.log(response.result);
+    setUser(response);
 
     if (response.isSuccess) {
       setIsLoggedIn(true);
+      localStorage.setItem('type', accountType);
+      localStorage.setItem('IsLoggedIn', 'true');
+      localStorage.setItem('userInfo', JSON.stringify(response.result));
     }
   };
 
   const spaceRegister = async () => {
-    const res = await getAsync('/user/get?account=20192995');
+    // const res = await getAsync('/user/get?account=20192995');
 
-    console.log(res);
-    //router.push('/register');
+    // console.log(res);
+    // setUser(res);
+    router.push('/register');
   };
+
+  const spaceLogout = () => {
+    setIsLoggedIn(false);
+    localStorage.removeItem('IsLoggedIn');
+    localStorage.removeItem('userInfo');
+    localStorage.removeItem('type');
+  };
+
+  useEffect(() => {
+    if (localStorage) {
+      setIsLoggedIn(
+        localStorage.getItem('IsLoggedIn') === 'true' ? true : false,
+      );
+    }
+  }, []);
 
   return (
     <>
@@ -54,13 +77,20 @@ const LoginBox = () => {
           <div className="user-info">
             <div className="user-image"></div>
             <div className="user-name">
-              안녕하세요, <span className="hl">{username}</span>님!
+              안녕하세요,{' '}
+              <span className="hl">
+                {JSON.parse(localStorage.getItem('userInfo') ?? '').name}
+              </span>
+              님!
             </div>
             <button
               className="login-button apply-button"
               onClick={loginHandler}
             >
               내 지원현황 보러가기
+            </button>
+            <button className="register-button" onClick={spaceLogout}>
+              로그아웃
             </button>
           </div>
         ) : (

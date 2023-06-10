@@ -8,9 +8,15 @@ import { organizationDummyData } from '@/dummyData';
 import { RecruitSubMenuType } from '@/constants/navigation';
 import ApplicantList from '@/components/ApplicantList';
 import { ApplicantData } from '@/dummyData';
+import { useEffect, useState } from 'react';
 
 const Recruit = () => {
   const router = useRouter();
+  const [organizationInfo, setOrganizationInfo] = useState({} || null);
+
+  useEffect(() => {
+    setOrganizationInfo(localStorage.getItem('userInfo'));
+  }, []);
 
   const menu = router.query.menu as
     | RecruitSubMenuType
@@ -24,7 +30,9 @@ const Recruit = () => {
         return <RecruitTemplate />;
       }
       case 'profile': {
-        return <UserInfo info={organizationDummyData} />;
+        return (
+          <UserInfo info={organizationDummyData} info1={organizationInfo} />
+        );
       }
       case 'members': {
         alert('멤버 관리는 준비중이에요!');

@@ -7,14 +7,20 @@ import UserInfo from '@/components/UserInfo';
 import { ApplySubMenuType } from '@/constants/navigation';
 import { ApplyDocumentData, ApplyDummyData, userDummyData } from '@/dummyData';
 import DocumentList from '@/components/DocumentList';
+import { useEffect, useState } from 'react';
 
 const Apply = () => {
   const router = useRouter();
   const menu = router.query.menu as ApplySubMenuType;
+  const [userInfo, setUserInfo] = useState({});
+
+  useEffect(() => {
+    setUserInfo(JSON.parse(localStorage.getItem('userInfo') ?? ''));
+  }, []);
 
   function renderApplyMenu() {
     if (menu === 'profile') {
-      return <UserInfo info={userDummyData} />;
+      return <UserInfo info={userDummyData} info1={userInfo} />;
     } else if (menu === 'status') {
       return <ApplyList content={ApplyDummyData} />;
     } else if (menu === 'documents') {

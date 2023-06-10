@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { isLoggedInState } from '@/atoms/auth';
 import { useRecoilState } from 'recoil';
 import { useRouter } from 'next/router';
@@ -13,19 +13,36 @@ const Navbar = ({ children }: NavBarProps) => {
   const [activeTab, setActiveTab] = useState('');
   const [isDropdownOpened, setIsDropdownOpened] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useRecoilState(isLoggedInState);
-
+  const [type, setType] = useState('');
   const router = useRouter();
 
+  useEffect(() => {
+    if (localStorage) {
+      setIsLoggedIn(
+        localStorage.getItem('IsLoggedIn') === 'true' ? true : false,
+      );
+      setType(localStorage.getItem('type') === 'general' ? '지원자' : '관리자');
+    }
+  }, []);
+
   const selectTabItem = (item: string) => {
-    if (item === '홍보글') {
-      setActiveTab('홍보글');
-      router.push('/promotion');
-    } else if (item === '지원') {
-      setActiveTab('지원');
-      router.push('/apply');
-    } else if (item === '모집') {
-      setActiveTab('모집');
-      router.push('/recruit');
+    if (isLoggedIn) {
+      if (item === '홍보글') {
+        setActiveTab('홍보글');
+        router.push('/promotion');
+      } else if (item === '지원') {
+        setActiveTab('지원');
+        router.push('/apply');
+      } else if (item === '모집') {
+        if (type === '지원자') {
+          alert('관리자만 접근 가능합니다.');
+        } else {
+          setActiveTab('모집');
+          router.push('/recruit');
+        }
+      }
+    } else {
+      alert('로그인을 해주세요!');
     }
   };
 
@@ -76,9 +93,7 @@ const Navbar = ({ children }: NavBarProps) => {
           </div>
           <div className="right">
             {!isLoggedIn ? (
-              <div className="login" onClick={onLogin}>
-                <div className="text">로그인</div>
-              </div>
+              <div style={{ display: 'flex', width: '100px' }}></div>
             ) : (
               <div style={{ display: 'flex', width: '100px' }}>
                 <img

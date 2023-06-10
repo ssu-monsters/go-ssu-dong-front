@@ -11,7 +11,6 @@ const REACT_SLIDER_SETTINGS = {
   slidesToShow: 1,
   slidesToScroll: 1,
   arrows: false,
-
   autoplay: true,
   speed: 2500,
   autoplaySpeed: 1500,

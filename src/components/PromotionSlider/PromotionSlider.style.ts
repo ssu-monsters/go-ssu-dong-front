@@ -33,7 +33,7 @@ export default css`
   }
   .GDSC {
     background-color: #ffffff;
-    ox-shadow: 0px 4px 4px rgba(222, 222, 222, 0.25);
+    box-shadow: 0px 4px 4px rgba(222, 222, 222, 0.25);
   }
 
   .text {
