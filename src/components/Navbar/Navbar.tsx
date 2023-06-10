@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { authState } from '@/atoms/auth';
+import { isLoggedInState } from '@/atoms/auth';
 import { useRecoilState } from 'recoil';
 import { useRouter } from 'next/router';
 
@@ -12,7 +12,7 @@ export interface NavBarProps {
 const Navbar = ({ children }: NavBarProps) => {
   const [activeTab, setActiveTab] = useState('');
   const [isDropdownOpened, setIsDropdownOpened] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useRecoilState(authState);
+  const [isLoggedIn, setIsLoggedIn] = useRecoilState(isLoggedInState);
 
   const router = useRouter();
 

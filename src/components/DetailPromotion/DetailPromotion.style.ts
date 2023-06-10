@@ -62,6 +62,7 @@ export default css`
     font-weight: 400;
     font-size: 18px;
     line-height: 29px;
+    width: 400px;
     color: #636363;
   }
 
@@ -118,5 +119,10 @@ export default css`
     line-height: 32px;
     color: #3b3d3b;
     margin-bottom: 80px;
+  }
+
+  :global(img) {
+    width: 400px;
+    height: 485px;
   }
 `;

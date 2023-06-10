@@ -24,13 +24,11 @@ const UserInfo = ({ info }: MyComponentProps) => {
               </div>
               <div className="text">{info[3]}</div>
             </div>
-            {info[0] === 'organization' ? (
+            {info[0] === 'organization' && (
               <div className="semi">
                 <div className="email ">이메일</div>
                 <div className="text">{info[4]}</div>
               </div>
-            ) : (
-              ''
             )}
             <div className="semi">
               <div className="age ">{info[0] === 'user' ? '나이' : '소속'}</div>
