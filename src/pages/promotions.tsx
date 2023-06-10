@@ -1,8 +1,8 @@
 import PromotionTemplate from '@/components/PromotionTemplate';
 import React from 'react';
 
-const Promotion = () => {
+const Promotions = () => {
   return <PromotionTemplate />;
 };
 
-export default Promotion;
+export default Promotions;
