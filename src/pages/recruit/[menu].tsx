@@ -8,6 +8,10 @@ import { organizationDummyData } from '@/dummyData';
 import { RecruitSubMenuType } from '@/constants/navigation';
 import ApplicantList from '@/components/ApplicantList';
 import { ApplicantData } from '@/dummyData';
+import SelectTemplate from '@/components/SelectTemplate';
+import { FirstSelectData } from '@/selectDummyData';
+
+const FirstSelectContent = [''];
 
 const Recruit = () => {
   const router = useRouter();
@@ -32,6 +36,13 @@ const Recruit = () => {
       }
       case 'manage-members': {
         return <ApplicantList content={ApplicantData} />;
+      }
+      case 'first-select': {
+        return <SelectTemplate selectType="first" content={FirstSelectData} />;
+      }
+
+      case 'final-select': {
+        return <SelectTemplate selectType="final" content={FirstSelectData} />;
       }
     }
     return <></>;
