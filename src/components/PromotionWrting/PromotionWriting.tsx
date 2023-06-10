@@ -41,7 +41,7 @@ const PromotionWriting = () => {
     organizationType: '',
     content: '',
     thumbnailImage:
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Google_Photos_icon_%282020%29.svg/220px-Google_Photos_icon_%282020%29.svg.png',
+      'https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9788959528820.jpg',
     applyLink: '',
     relatedLink: '',
   });
@@ -86,7 +86,11 @@ const PromotionWriting = () => {
 
   const FormSubmit = async () => {
     const res = await writePromotionAsync(promotionInfo, dayInputs);
-    console.log(res);
+    console.log(res.isSuccess);
+    if (res.isSuccess) {
+      const promotionId = localStorage.getItem('ID');
+      router.push(`/promotion/${promotionId}`);
+    }
   };
 
   return (

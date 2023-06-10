@@ -66,6 +66,10 @@ module.exports = {
         protocol: 'https',
         hostname: 'cee.snu.ac.kr',
       },
+      {
+        protocol: 'https',
+        hostname: 'contents.kyobobook.co.kr',
+      },
     ],
   },
 };
