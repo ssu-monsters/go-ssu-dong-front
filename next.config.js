@@ -70,6 +70,10 @@ module.exports = {
         protocol: 'https',
         hostname: 'contents.kyobobook.co.kr',
       },
+      {
+        protocol: 'https',
+        hostname: 'velog.velcdn.com',
+      },
     ],
   },
 };
