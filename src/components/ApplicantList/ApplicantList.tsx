@@ -18,7 +18,7 @@ const ApplicantList = ({ content }: MyComponentProps) => {
         </div>
         <Table
           fieldNameList={current}
-          fieldWidthList={['70px', '680px', '120px']}
+          fieldWidthList={['70px', '120px', '680px', '130px']}
           content={content}
         />
       </div>

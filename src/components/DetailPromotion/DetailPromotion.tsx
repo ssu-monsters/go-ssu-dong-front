@@ -72,8 +72,8 @@ const DetailPromotion = ({ title, detailData }: MyComponentProps) => {
               </button>
             </div>
           </div>
-          <div className="detail-text">{TEXT}</div>
-          <div className="detail-text">{TEXT}</div>
+          <div className="detail-text">{detailData?.content}</div>
+          {/*<div className="detail-text">{TEXT}</div>*/}
         </div>
       </div>
       <style jsx>{styles}</style>
