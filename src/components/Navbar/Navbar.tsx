@@ -15,6 +15,7 @@ const Navbar = ({ children }: NavBarProps) => {
   const [isLoggedIn, setIsLoggedIn] = useRecoilState(isLoggedInState);
   const [type, setType] = useState('');
   const router = useRouter();
+  const [name, setName] = useState('');
 
   useEffect(() => {
     if (localStorage) {
@@ -22,6 +23,9 @@ const Navbar = ({ children }: NavBarProps) => {
         localStorage.getItem('IsLoggedIn') === 'true' ? true : false,
       );
       setType(localStorage.getItem('type') === 'general' ? '지원자' : '관리자');
+      if (localStorage.getItem('userInfo')) {
+        setName(JSON.parse(localStorage.getItem('userInfo') ?? '')?.name);
+      }
     }
   }, []);
 
@@ -31,8 +35,12 @@ const Navbar = ({ children }: NavBarProps) => {
         setActiveTab('홍보글');
         router.push('/promotion');
       } else if (item === '지원') {
-        setActiveTab('지원');
-        router.push('/apply');
+        if (type === '관리자') {
+          alert('지원자만 접근 가능합니다.');
+        } else {
+          setActiveTab('지원');
+          router.push('/apply');
+        }
       } else if (item === '모집') {
         if (type === '지원자') {
           alert('관리자만 접근 가능합니다.');
@@ -101,7 +109,7 @@ const Navbar = ({ children }: NavBarProps) => {
                   src="https://cdn-icons-png.flaticon.com/512/14/14660.png"
                 />
                 <div className="name" onClick={SpaceMypage}>
-                  배현서
+                  {name || ''}
                 </div>
               </div>
             )}

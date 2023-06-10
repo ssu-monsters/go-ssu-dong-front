@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import styles from './PromotionWriting.style';
 import { useState } from 'react';
 import Calendar from 'react-calendar';
@@ -7,6 +7,7 @@ import moment from 'moment';
 
 import AddIcon from '@/assets/images/add.svg';
 import { useRouter } from 'next/router';
+import { writePromotionAsync } from '@/api/promotion';
 
 const ORGANIZATION_TYPE = ['동아리', '대외할동', '스타트업', '소모임', '기타'];
 
@@ -34,12 +35,13 @@ const PromotionWriting = () => {
 
   const [promotionInfo, setPromotionInfo] = useState({
     title: '',
-    intro: '',
-    user: '',
-    memberNumber: '',
-    type: '',
-    text: '',
-    thumnail: '',
+    description: '',
+    target: '',
+    recruitmentCount: 30,
+    organizationType: '',
+    content: '',
+    thumbnailImage:
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Google_Photos_icon_%282020%29.svg/220px-Google_Photos_icon_%282020%29.svg.png',
     applyLink: '',
     relatedLink: '',
   });
@@ -63,7 +65,7 @@ const PromotionWriting = () => {
         const res = reader.result as string;
         setImageSrc(res ?? '');
         resolve();
-        setPromotionInfo({ ...promotionInfo, thumnail: res });
+        // setPromotionInfo({ ...promotionInfo, thumbnailImage: "" });
       };
     });
   };
@@ -82,9 +84,9 @@ const PromotionWriting = () => {
     setIsCalendarOpened(false);
   };
 
-  const FormSubmit = () => {
-    console.log(promotionInfo);
-    console.log(dayInputs);
+  const FormSubmit = async () => {
+    const res = await writePromotionAsync(promotionInfo, dayInputs);
+    console.log(res);
   };
 
   return (
@@ -109,9 +111,9 @@ const PromotionWriting = () => {
             한줄소개
             <input
               className="input"
-              name="intro"
+              name="description"
               placeholder="조직에 대한 한 줄 소개를 작성해주세요"
-              value={promotionInfo.intro}
+              value={promotionInfo.description}
               onChange={onChangePromotionInfo}
             />
           </div>
@@ -119,9 +121,9 @@ const PromotionWriting = () => {
             대상
             <input
               className="input"
-              name="user"
+              name="target"
               placeholder="조직 홍보 대상을 기재해주세요"
-              value={promotionInfo.user}
+              value={promotionInfo.target}
               onChange={onChangePromotionInfo}
             />
           </div>
@@ -176,9 +178,9 @@ const PromotionWriting = () => {
             모집 인원
             <input
               className="input"
-              name="memberNumber"
+              name="recruitmentCount"
               placeholder="조직 홍보 대상을 기재해주세요"
-              value={promotionInfo.memberNumber}
+              value={promotionInfo.recruitmentCount}
               onChange={onChangePromotionInfo}
             />
           </div>
@@ -189,7 +191,7 @@ const PromotionWriting = () => {
                 <label key={idx}>
                   <input
                     type="radio"
-                    name="type"
+                    name="organizationType"
                     value={item}
                     onChange={onChangePromotionInfo}
                   />
@@ -200,13 +202,13 @@ const PromotionWriting = () => {
           </div>
           <div className="text-area">내용</div>
           <textarea
-            name="text"
+            name="content"
             placeholder="내용을 입력해주세요"
-            value={promotionInfo.text}
+            value={promotionInfo.content}
             onChange={(e) =>
               setPromotionInfo({
                 ...promotionInfo,
-                text: e.target.value,
+                content: e.target.value,
               })
             }
           ></textarea>

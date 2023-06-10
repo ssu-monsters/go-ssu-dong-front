@@ -10,7 +10,15 @@ const UserInfo = ({ info, info1 }: MyComponentProps) => {
   return (
     <>
       <div className="container">
-        <div className="user-image"></div>
+        <div className="user-image">
+          <img
+            src={
+              info.type === 'user'
+                ? 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKid9pP8GtZN7KG27yZJCyUTBMnVaWsUr-lmHtzcnniwP3D0J8k-qO5z636i-2TGAbFeY&usqp=CAU'
+                : 'https://en.pimg.jp/086/004/006/1/86004006.jpg'
+            }
+          />
+        </div>
         <div className="user-info">
           <div className="name">{info1.name}</div>
           <div className="user-semi-info">

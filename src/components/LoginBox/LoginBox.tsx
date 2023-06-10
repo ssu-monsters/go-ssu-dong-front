@@ -41,9 +41,14 @@ const LoginBox = () => {
 
     if (response.isSuccess) {
       setIsLoggedIn(true);
+
       localStorage.setItem('type', accountType);
       localStorage.setItem('IsLoggedIn', 'true');
       localStorage.setItem('userInfo', JSON.stringify(response.result));
+      if (accountType === 'organization') {
+        localStorage.setItem('ID', JSON.stringify(response.result.id));
+        console.log(typeof JSON.parse(localStorage.getItem('ID') || ''));
+      }
     }
   };
 
@@ -75,7 +80,12 @@ const LoginBox = () => {
       <div className="box-wrap">
         {isLoggedIn ? (
           <div className="user-info">
-            <div className="user-image"></div>
+            <div className="user-image">
+              <img
+                width={100}
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKid9pP8GtZN7KG27yZJCyUTBMnVaWsUr-lmHtzcnniwP3D0J8k-qO5z636i-2TGAbFeY&usqp=CAU"
+              />
+            </div>
             <div className="user-name">
               안녕하세요,{' '}
               <span className="hl">

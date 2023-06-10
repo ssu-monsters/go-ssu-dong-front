@@ -15,7 +15,7 @@ const Recruit = () => {
   const [organizationInfo, setOrganizationInfo] = useState({} || null);
 
   useEffect(() => {
-    setOrganizationInfo(localStorage.getItem('userInfo'));
+    setOrganizationInfo(JSON.parse(localStorage.getItem('userInfo') ?? ''));
   }, []);
 
   const menu = router.query.menu as
