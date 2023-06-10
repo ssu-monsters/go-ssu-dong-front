@@ -86,7 +86,6 @@ const PromotionWriting = () => {
 
   const FormSubmit = async () => {
     const res = await writePromotionAsync(promotionInfo, dayInputs);
-    console.log(res.isSuccess);
     if (res.isSuccess) {
       const promotionId = localStorage.getItem('ID');
       router.push(`/promotion/${promotionId}`);

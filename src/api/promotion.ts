@@ -32,7 +32,6 @@ export async function writePromotionAsync(
     organizationId: JSON.parse(localStorage.getItem('ID') || ''),
   };
 
-  console.log(data);
   const response = await postAsync('/promotion/write', data);
   return response;
 }
@@ -41,7 +40,6 @@ export async function allpromotionAsync(): ApiResponse<any> {
   const response = await getAsync('/promotion/all');
   return response;
 }
-
 
 export const getPromotionDetailAsync = async (organizationid: number) => {
   const response = await getAsync<any>(

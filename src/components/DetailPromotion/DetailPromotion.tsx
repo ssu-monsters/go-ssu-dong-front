@@ -17,7 +17,7 @@ const DetailPromotion = ({ title, detailData }: MyComponentProps) => {
       'https://docs.google.com/forms/d/e/1FAIpQLSfKex69vMhjL3rv0hQX_UaQrJvh3NMgWkFhTIx7ihoTjd1WIg/viewform?vc=0&c=0&w=1&flr=0',
     );
   };
-  console.log(detailData, 1);
+
   return (
     <>
       <div className="background">

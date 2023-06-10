@@ -33,10 +33,6 @@ const LoginBox = () => {
     const accountType = type === '지원자' ? 'general' : 'organization';
     const response = await loginAsync(accountType, account, password);
 
-    // console.log(response);
-    // const response = await getAsync<any>('/user/get?account=20192995');
-
-    console.log(response.result);
     setUser(response);
 
     if (response.isSuccess) {
@@ -47,17 +43,11 @@ const LoginBox = () => {
       localStorage.setItem('userInfo', JSON.stringify(response.result));
       if (accountType === 'organization') {
         localStorage.setItem('ID', JSON.stringify(response.result.id));
-        console.log(typeof JSON.parse(localStorage.getItem('ID') || ''));
       }
     }
   };
 
   const spaceRegister = async () => {
-    // const res = await getAsync('/user/get?account=20192995');
-    // const res = await allpromotionAsync();
-    // console.log(res.result);
-    // setUser(res);
-
     router.push('/register');
   };
 

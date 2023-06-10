@@ -17,7 +17,6 @@ const REACT_SLIDER_SETTINGS = {
 };
 
 const PromotionSlider = () => {
-  console.log(promotionSliderDummyData);
   return (
     <>
       <div className="container">

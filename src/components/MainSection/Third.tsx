@@ -26,13 +26,8 @@ const Third = () => {
   const [allpromotionData, setAllpromotionData] = useState<any>([]);
 
   const allprmotion = async () => {
-    // const res = await getAsync('/user/get?account=20192995');
     const res = await allpromotionAsync();
     setAllpromotionData(res.result.splice(2));
-    console.log(res.result.splice(2));
-    // setUser(res);
-
-    //router.push('/register');
   };
 
   useEffect(() => {

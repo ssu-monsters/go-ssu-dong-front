@@ -17,19 +17,15 @@ const Promotion = () => {
     const res = await getPromotionDetailAsync(Number(param));
     //TODO  데이터 가공해서 data만 return 해야함 !!
     const data = res.result;
-    console.log(data);
     setDetailData(data);
     return data;
   };
 
   useEffect(() => {
-    console.log(param);
-    console.log(typeof param);
     // param이 존재하는데 new가 아닐 때. 즉 홍보글 상세 페이지인 경우
     if (param && param !== 'new') {
       const data = getDetailedInfo();
       setDetailData(data);
-      console.log('sss');
     }
   }, []);
 

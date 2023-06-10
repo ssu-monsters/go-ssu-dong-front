@@ -6,7 +6,6 @@ interface MyComponentProps {
 }
 
 const UserInfo = ({ info, info1 }: MyComponentProps) => {
-  console.log(info1);
   return (
     <>
       <div className="container">
