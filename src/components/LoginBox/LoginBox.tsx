@@ -38,14 +38,13 @@ const LoginBox = () => {
     if (response.isSuccess) {
       setIsLoggedIn(true);
     }
-
   };
 
   const spaceRegister = async () => {
     const res = await getAsync('/user/get?account=20192995');
 
     console.log(res);
-    router.push('/register');
+    //router.push('/register');
   };
 
   return (
