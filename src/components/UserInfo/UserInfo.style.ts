@@ -16,6 +16,12 @@ export default css`
     background-color: #d9d9d9;
   }
 
+  .user-image img {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+  }
+
   .user-info {
     width: 300px;
     height: 245px;

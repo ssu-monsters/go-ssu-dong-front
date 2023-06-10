@@ -15,6 +15,11 @@ const FirstSelectContent = [''];
 
 const Recruit = () => {
   const router = useRouter();
+  const [organizationInfo, setOrganizationInfo] = useState({} || null);
+
+  useEffect(() => {
+    setOrganizationInfo(JSON.parse(localStorage.getItem('userInfo') ?? ''));
+  }, []);
 
   const menu = router.query.menu as
     | RecruitSubMenuType
@@ -28,7 +33,9 @@ const Recruit = () => {
         return <RecruitTemplate />;
       }
       case 'profile': {
-        return <UserInfo info={organizationDummyData} />;
+        return (
+          <UserInfo info={organizationDummyData} info1={organizationInfo} />
+        );
       }
       case 'members': {
         alert('멤버 관리는 준비중이에요!');

@@ -120,9 +120,4 @@ export default css`
     color: #3b3d3b;
     margin-bottom: 80px;
   }
-
-  :global(img) {
-    width: 400px;
-    height: 485px;
-  }
 `;

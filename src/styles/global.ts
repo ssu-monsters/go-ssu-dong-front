@@ -42,6 +42,6 @@ export default css.global`
     bottom: 15px;
   }
   .slick-dots li button:before {
-    font-size: 15px;
+    font-size: 10px;
   }
 `;

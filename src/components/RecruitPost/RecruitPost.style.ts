@@ -9,6 +9,10 @@ export default css`
   }
 
   .title {
+    width: 330px;
+    height: 40px;
+    margin-bottom: 20px;
+    overflow-y: hidden;
     font-weight: 900;
     font-size: 25px;
     line-height: 40px;

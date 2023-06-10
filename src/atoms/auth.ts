@@ -5,4 +5,9 @@ const isLoggedInState = atom({
   default: false,
 });
 
-export { isLoggedInState };
+const userState = atom({
+  key: 'user',
+  default: {},
+});
+
+export { isLoggedInState, userState };

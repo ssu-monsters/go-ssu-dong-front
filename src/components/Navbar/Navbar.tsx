@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { isLoggedInState } from '@/atoms/auth';
 import { useRecoilState } from 'recoil';
 import { useRouter } from 'next/router';
@@ -13,19 +13,44 @@ const Navbar = ({ children }: NavBarProps) => {
   const [activeTab, setActiveTab] = useState('');
   const [isDropdownOpened, setIsDropdownOpened] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useRecoilState(isLoggedInState);
-
+  const [type, setType] = useState('');
   const router = useRouter();
+  const [name, setName] = useState('');
+
+  useEffect(() => {
+    if (localStorage) {
+      setIsLoggedIn(
+        localStorage.getItem('IsLoggedIn') === 'true' ? true : false,
+      );
+      setType(localStorage.getItem('type') === 'general' ? '지원자' : '관리자');
+      if (localStorage.getItem('userInfo')) {
+        setName(JSON.parse(localStorage.getItem('userInfo') ?? '')?.name);
+      }
+    }
+  }, []);
 
   const selectTabItem = (item: string) => {
-    if (item === '홍보글') {
-      setActiveTab('홍보글');
-      router.push('/promotion');
-    } else if (item === '지원') {
-      setActiveTab('지원');
-      router.push('/apply');
-    } else if (item === '모집') {
-      setActiveTab('모집');
-      router.push('/recruit');
+    if (isLoggedIn) {
+      if (item === '홍보글') {
+        setActiveTab('홍보글');
+        router.push('/promotion');
+      } else if (item === '지원') {
+        if (type === '관리자') {
+          alert('지원자만 접근 가능합니다.');
+        } else {
+          setActiveTab('지원');
+          router.push('/apply');
+        }
+      } else if (item === '모집') {
+        if (type === '지원자') {
+          alert('관리자만 접근 가능합니다.');
+        } else {
+          setActiveTab('모집');
+          router.push('/recruit');
+        }
+      }
+    } else {
+      alert('로그인을 해주세요!');
     }
   };
 
@@ -76,9 +101,7 @@ const Navbar = ({ children }: NavBarProps) => {
           </div>
           <div className="right">
             {!isLoggedIn ? (
-              <div className="login" onClick={onLogin}>
-                <div className="text">로그인</div>
-              </div>
+              <div style={{ display: 'flex', width: '100px' }}></div>
             ) : (
               <div style={{ display: 'flex', width: '100px' }}>
                 <img
@@ -86,7 +109,7 @@ const Navbar = ({ children }: NavBarProps) => {
                   src="https://cdn-icons-png.flaticon.com/512/14/14660.png"
                 />
                 <div className="name" onClick={SpaceMypage}>
-                  배현서
+                  {name || ''}
                 </div>
               </div>
             )}

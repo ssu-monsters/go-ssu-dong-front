@@ -11,7 +11,7 @@ const API: AxiosInstance = axios.create({
   },
 });
 
-function handleError(error: any): ApiError {
+function handleError(error: unknown): ApiError {
   // AxiosError로 타입 추론
   if (axios.isAxiosError(error)) {
     // 요청 성공, 응답 성공

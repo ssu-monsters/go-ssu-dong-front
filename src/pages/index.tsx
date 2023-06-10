@@ -1,4 +1,5 @@
 import * as MainSection from '@/components/MainSection';
+import { useEffect } from 'react';
 
 export default function Home() {
   return (

@@ -7,7 +7,7 @@ export type OrganizationType =
 
 export interface RecruitPostType {
   title: string;
-  introduce: string;
+  description: string;
   organizationType: OrganizationType;
   target: string;
   recruitStartDate: string;
@@ -17,7 +17,7 @@ export interface RecruitPostType {
   recruitCount: number;
   content: string;
   recruitURL: string;
-  thumbnailImg: string;
+  thumbnailImage: string;
 }
 
 export type PageTransformType = 'promotion' | 'document' | 'interview';
