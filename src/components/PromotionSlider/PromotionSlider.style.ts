@@ -10,7 +10,7 @@ export default css`
   .main {
     position: relative;
     height: 430px;
-    padding: 0 160px;
+    padding: 0 200px;
     display: flex;
   }
   .SSBC {
@@ -33,6 +33,7 @@ export default css`
   }
   .GDSC {
     background-color: #ffffff;
+    ox-shadow: 0px 4px 4px rgba(222, 222, 222, 0.25);
   }
 
   .text {
