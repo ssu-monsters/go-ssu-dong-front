@@ -65,6 +65,8 @@ const LoginBox = () => {
     localStorage.removeItem('IsLoggedIn');
     localStorage.removeItem('userInfo');
     localStorage.removeItem('type');
+    localStorage.removeItem('pageTransform');
+    localStorage.removeItem('activeStep');
   };
 
   useEffect(() => {

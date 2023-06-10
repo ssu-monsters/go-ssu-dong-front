@@ -1,6 +1,6 @@
 import Logo from '@/assets/images/loginbox-logo.svg';
 import { useState } from 'react';
-
+import { registerAsync } from '@/api/auth';
 import styles from './RegisterBox.style';
 import { useRouter } from 'next/router';
 
@@ -14,24 +14,32 @@ const RegisterBox = () => {
   const [email, setEmail] = useState('');
   const [password1Error, setPassword1Error] = useState(false);
   const [password2Error, setPassword2Error] = useState(false);
-  const LoginSubmit = (e: any) => {
+  const LoginSubmit = async (e: any) => {
     e.preventDefault();
-    if (type === '지원자') {
-      console.log('지원자');
-      console.log({
-        account: userId,
-        password: password2,
-        username: username,
-        email: email,
-      });
-    } else {
-      console.log('관리자');
-      console.log({
-        account: userId,
-        password: password2,
-        username: username,
-        email: email,
-      });
+    if (type === 'general') {
+      const response = await registerAsync(
+        type,
+        userId,
+        password2,
+        email,
+        username,
+        '',
+      );
+      if (response.isSuccess) {
+        alert('회원가입 완료되었습니다.');
+      }
+    } else if (type === 'organization') {
+      const response = await registerAsync(
+        type,
+        userId,
+        password2,
+        email,
+        username,
+        '',
+      );
+      if (response.isSuccess) {
+        alert('회원가입 완료되었습니다.');
+      }
     }
 
     router.push('/');
@@ -84,7 +92,7 @@ const RegisterBox = () => {
             <input
               type="radio"
               name="type"
-              value="지원자"
+              value="general"
               onChange={(e) => {
                 setType(e.target.value);
               }}
@@ -95,7 +103,7 @@ const RegisterBox = () => {
             <input
               type="radio"
               name="type"
-              value="관리자"
+              value="organization"
               onChange={(e) => {
                 setType(e.target.value);
               }}
