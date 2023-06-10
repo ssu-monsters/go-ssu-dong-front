@@ -36,4 +36,12 @@ export default css.global`
   button {
     cursor: pointer;
   }
+
+  .slick-dots {
+    position: absolute;
+    bottom: 15px;
+  }
+  .slick-dots li button:before {
+    font-size: 15px;
+  }
 `;

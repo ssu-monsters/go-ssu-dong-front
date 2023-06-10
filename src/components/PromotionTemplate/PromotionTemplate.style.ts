@@ -13,7 +13,6 @@ export default css`
   .carousel {
     width: 100%;
     height: 460px;
-    background-color: ${COLORS.grayscale.gray100};
   }
 
   .title {
