@@ -8,7 +8,6 @@ import { getPromotionDetailAsync } from '@/api/promotion';
 const Promotion = () => {
   const router = useRouter();
 
-  // 홍보글 둘러보기 : `/promotion`
   // 홍보글 작성하기 : `/promotion/new`
   // 홍보글 상세보기 : `/promotion/[org_id]`
   const { param } = router.query;
@@ -24,6 +23,7 @@ const Promotion = () => {
   };
 
   useEffect(() => {
+    // param이 존재하는데 new가 아닐 때. 즉 홍보글 상세 페이지인 경우
     if (param && param !== 'new') {
       const data = getDetailedInfo();
       setDetailData(data);
