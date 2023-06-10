@@ -1,5 +1,5 @@
 import { ApiResponse } from '@/constants/types/api';
-import { postAsync } from './API';
+import { postAsync, getAsync } from './API';
 
 /** 로그인 요청 함수 */
 export async function writePromotionAsync(
@@ -34,5 +34,10 @@ export async function writePromotionAsync(
 
   console.log(data);
   const response = await postAsync('/promotion/write', data);
+  return response;
+}
+
+export async function allpromotionAsync(): ApiResponse<any> {
+  const response = await getAsync('/promotion/all');
   return response;
 }

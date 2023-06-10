@@ -30,4 +30,42 @@ module.exports = {
     });
     return config;
   },
+
+  // next/image 관련 설정
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'res.cloudinary.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'cf-cpi.campuspick.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'search.pstatic.net',
+      },
+      {
+        protocol: 'https',
+        hostname: 'i.namu.wiki',
+      },
+      {
+        protocol: 'https',
+        hostname: 'flexible.img.hani.co.kr',
+      },
+      {
+        protocol: 'https',
+        hostname: 'img.seoul.co.kr',
+      },
+      {
+        protocol: 'https',
+        hostname: 'pbs.twimg.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'cee.snu.ac.kr',
+      },
+    ],
+  },
 };

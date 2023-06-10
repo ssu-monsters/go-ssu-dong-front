@@ -4,7 +4,7 @@ import styles from './LoginBox.style';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { loginAsync } from '@/api/auth';
-
+import { allpromotionAsync } from '@/api/promotion';
 import { getAsync } from '@/api/API';
 
 import { useRecoilState } from 'recoil';
@@ -54,10 +54,11 @@ const LoginBox = () => {
 
   const spaceRegister = async () => {
     // const res = await getAsync('/user/get?account=20192995');
-
-    // console.log(res);
+    const res = await allpromotionAsync();
+    console.log(res.result);
     // setUser(res);
-    router.push('/register');
+
+    //router.push('/register');
   };
 
   const spaceLogout = () => {

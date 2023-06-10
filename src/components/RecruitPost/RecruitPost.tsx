@@ -22,6 +22,7 @@ const RecruitPost = ({ title, introduce, thumbnailImg }: RecruitPostProps) => {
           src={thumbnailImg}
           width={330}
           height={330}
+          style={{ borderRadius: '10px' }}
           alt={`${title}-post-img`}
         />
         <div className="title">{title}</div>

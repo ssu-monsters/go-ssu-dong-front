@@ -8,6 +8,8 @@ import 'slick-carousel/slick/slick-theme.css';
 import { RecruitPostDummyData } from '@/dummyData';
 import { RecruitPostType } from '@/constants/types/recruit';
 import { useRouter } from 'next/router';
+import { allpromotionAsync } from '@/api/promotion';
+import { useEffect, useState } from 'react';
 
 const REACT_SLIDER_SETTINGS = {
   infinite: true,
@@ -21,6 +23,22 @@ const REACT_SLIDER_SETTINGS = {
 
 const Third = () => {
   const router = useRouter();
+  const [allpromotionData, setAllpromotionData] = useState<any>([]);
+
+  const allprmotion = async () => {
+    // const res = await getAsync('/user/get?account=20192995');
+    const res = await allpromotionAsync();
+    setAllpromotionData(res.result.splice(2));
+    console.log(res.result.splice(2));
+    // setUser(res);
+
+    //router.push('/register');
+  };
+
+  useEffect(() => {
+    allprmotion();
+  }, []);
+
   return (
     <>
       <div className="section third-section">
@@ -28,12 +46,12 @@ const Third = () => {
           다양한 리쿠르팅을 탐색해보세요
         </div>
         <Slider {...REACT_SLIDER_SETTINGS}>
-          {RecruitPostDummyData.map((post: RecruitPostType, index: number) => (
+          {allpromotionData.map((post: any, index: number) => (
             <RecruitPost
               key={index}
               title={post.title}
-              introduce={post.introduce}
-              thumbnailImg={post.thumbnailImg}
+              introduce={post.description}
+              thumbnailImg={post.thumbnailImage}
             />
           ))}
         </Slider>
