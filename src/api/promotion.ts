@@ -41,3 +41,11 @@ export async function allpromotionAsync(): ApiResponse<any> {
   const response = await getAsync('/promotion/all');
   return response;
 }
+
+
+export const getPromotionDetailAsync = async (organizationid: number) => {
+  const response = await getAsync<any>(
+    `/promotion/get?organizationid=${organizationid}`,
+  );
+  return response;
+};
