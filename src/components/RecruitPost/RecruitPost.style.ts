@@ -4,7 +4,7 @@ import css from 'styled-jsx/css';
 export default css`
   .post-wrap {
     width: fit-content;
-    margin: 0 25px;
+    margin: 0 30px;
     cursor: pointer;
   }
 

@@ -24,13 +24,9 @@ const PromotionTemplate = () => {
   const [allpromotionData, setAllpromotionData] = useState<any>([]);
 
   const allprmotion = async () => {
-    // const res = await getAsync('/user/get?account=20192995');
     const res = await allpromotionAsync();
     setAllpromotionData(res.result.splice(2));
-    console.log(res.result.splice(2));
-    // setUser(res);
-
-    //router.push('/register');
+    console.log(res.result[0].organizationId);
   };
 
   useEffect(() => {
@@ -56,6 +52,7 @@ const PromotionTemplate = () => {
               title={post.title}
               introduce={post.description}
               thumbnailImg={post.thumbnailImage}
+              promotionId={post.organizationId}
             />
           ))}
         </div>

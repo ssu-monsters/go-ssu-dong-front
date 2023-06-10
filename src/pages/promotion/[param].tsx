@@ -17,7 +17,9 @@ const Promotion = () => {
   const getDetailedInfo = async () => {
     const res = await getPromotionDetailAsync(Number(param));
     //TODO  데이터 가공해서 data만 return 해야함 !!
-    const data = res;
+    const data = res.result;
+    console.log(data);
+    setDetailData(data);
     return data;
   };
 

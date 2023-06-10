@@ -52,6 +52,7 @@ const Third = () => {
               title={post.title}
               introduce={post.description}
               thumbnailImg={post.thumbnailImage}
+              promotionId={post.organizationId}
             />
           ))}
         </Slider>

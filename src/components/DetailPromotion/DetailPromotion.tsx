@@ -17,7 +17,7 @@ const DetailPromotion = ({ title, detailData }: MyComponentProps) => {
       'https://docs.google.com/forms/d/e/1FAIpQLSfKex69vMhjL3rv0hQX_UaQrJvh3NMgWkFhTIx7ihoTjd1WIg/viewform?vc=0&c=0&w=1&flr=0',
     );
   };
-
+  console.log(detailData, 1);
   return (
     <>
       <div className="background">
@@ -30,7 +30,7 @@ const DetailPromotion = ({ title, detailData }: MyComponentProps) => {
                     #{detailData?.organizationType}
                   </div>
                   <div className="title">{detailData?.title}</div>
-                  <div className="introduce">{detailData?.introduce}</div>
+                  <div className="introduce">{detailData?.description}</div>
                 </div>
                 <div className="date">
                   <div className="inner-date">
@@ -41,29 +41,31 @@ const DetailPromotion = ({ title, detailData }: MyComponentProps) => {
                     <div className="type">모집 기간</div>
                     <div className="type-result">
                       {' '}
-                      {detailData?.recruitStartDate} ~{' '}
-                      {detailData?.recruitEndDate}
+                      {detailData?.recruitmentPeriod}
                     </div>
                   </div>
                   <div className="inner-date">
                     <div className="type">활동 기간</div>
                     <div className="type-result">
                       {' '}
-                      {detailData?.activityStartDate} ~{' '}
-                      {detailData?.acitivityEndDate}
+                      {detailData?.activityPeriod}
                     </div>
                   </div>
                   <div className="inner-date-last">
                     <div className="type">모집 인원</div>
                     <div className="type-result">
                       {' '}
-                      {detailData?.recruitCount}
+                      {detailData?.recruitmentCount}
                     </div>
                   </div>
                 </div>
               </div>
               <div className="inner-right">
-                <img src={detailData?.thumbnailImg} />
+                <img
+                  width={400}
+                  height={410}
+                  src={detailData?.thumbnailImage}
+                />
               </div>
             </div>
             <div className="btn">

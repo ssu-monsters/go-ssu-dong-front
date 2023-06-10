@@ -127,6 +127,6 @@ export default css`
     color: ${COLORS.grayscale.white};
 
     display: block;
-    margin: 50px auto 0px;
+    margin: 40px auto 0px;
   }
 `;

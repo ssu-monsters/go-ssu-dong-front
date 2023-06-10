@@ -51,6 +51,7 @@ export default css`
     text-align: center;
   }
   .title {
+    width: 410px;
     font-weight: 800;
     font-size: 40px;
     line-height: 44px;
@@ -68,6 +69,7 @@ export default css`
 
   .date {
     height: 191px;
+    width: 370px;
   }
   .inner-date {
     display: flex;

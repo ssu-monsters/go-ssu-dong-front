@@ -7,21 +7,27 @@ interface RecruitPostProps {
   title: string;
   introduce: string;
   thumbnailImg: string;
+  promotionId: string;
 }
 
-const RecruitPost = ({ title, introduce, thumbnailImg }: RecruitPostProps) => {
+const RecruitPost = ({
+  title,
+  introduce,
+  thumbnailImg,
+  promotionId,
+}: RecruitPostProps) => {
   const router = useRouter();
-  const DetailPage = (title: string) => {
-    router.push(`/promotion/${title}`);
+  const DetailPage = (promotionId: string) => {
+    router.push(`/promotion/${promotionId}`);
   };
 
   return (
     <>
-      <div className="post-wrap" onClick={() => DetailPage(title)}>
+      <div className="post-wrap" onClick={() => DetailPage(promotionId)}>
         <Image
           src={thumbnailImg}
-          width={330}
-          height={330}
+          width={340}
+          height={350}
           style={{ borderRadius: '10px' }}
           alt={`${title}-post-img`}
         />
