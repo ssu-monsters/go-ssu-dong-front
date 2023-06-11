@@ -33,7 +33,7 @@ const Navbar = ({ children }: NavBarProps) => {
     if (isLoggedIn) {
       if (item === '홍보글') {
         setActiveTab('홍보글');
-        router.push('/promotion');
+        router.push('/promotions');
       } else if (item === '지원') {
         if (type === '관리자') {
           alert('지원자만 접근 가능합니다.');
