@@ -27,6 +27,7 @@ const PromotionTemplate = () => {
     const res = await allpromotionAsync();
 
     setAllpromotionData(res.result.splice(2));
+
     // console.log(res.result[0].organizationId);
     // //console.log(res.result.splice(2));
   };
@@ -54,7 +55,7 @@ const PromotionTemplate = () => {
               title={post.title}
               introduce={post.description}
               thumbnailImg={post.thumbnailImage}
-              promotionId={post.promotionId}
+              promotionId={post.organizationId}
             />
           ))}
         </div>
