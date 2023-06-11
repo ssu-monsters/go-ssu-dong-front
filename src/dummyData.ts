@@ -216,10 +216,10 @@ export const userDummyData = {
 
 export const organizationDummyData = {
   type: 'organization',
-  name: 'SSC',
-  subtype: '축구동아리',
-  represent: '배현서',
-  email: 'qogustj@naver.com',
+  name: 'GAME',
+  subtype: 'GAME',
+  represent: '???',
+  email: 'chy8165@naver.com',
   school: '숭실대학교',
 };
 
