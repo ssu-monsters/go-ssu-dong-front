@@ -53,7 +53,7 @@ const Third = () => {
         </Slider>
         <button
           className="search-more-button"
-          onClick={() => router.push('/promotion')}
+          onClick={() => router.push('/promotions')}
         >
           더 많은 리쿠르팅 글 보기
         </button>
