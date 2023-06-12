@@ -135,32 +135,25 @@ export const RecruitPostDummyData: RecruitPostType[] = [
 
 export const ApplyDummyData = [
   {
-    name: '영어회화 동아리1',
-    paper: '숭실대 소프트웨어학부 배현서 지원서',
+    name: 'SSC',
+    paper: '숭실대 소프트웨어학부 배현서 SSC 지원서',
     date: '2023.04.11',
     type: '동아리',
     result: '지원완료',
   },
   {
-    name: '영어회화 동아리2',
-    paper: '숭실대 소프트웨어학부 배현서 지원서',
-    date: '2023.04.11',
+    name: 'GDSC',
+    paper: '배현서 GDSC 지원서',
+    date: '2023.04.12',
     type: '동아리',
     result: '합격',
   },
   {
-    name: '영어회화 동아리3',
-    paper: '숭실대 소프트웨어학부 배현서 지원서',
-    date: '2023.04.11',
-    type: '동아리',
-    result: '지원완료',
-  },
-  {
-    name: '영어회화 동아리4',
-    paper: '숭실대 소프트웨어학부 배현서 지원서',
-    date: '2023.04.11',
-    type: '동아리',
-    result: '지원완료',
+    name: 'SAMSUNG',
+    paper: '삼성 전기 신입사원 채용 배현서 이력서',
+    date: '2023.04.13',
+    type: '대기업',
+    result: '탈락',
   },
 ];
 
