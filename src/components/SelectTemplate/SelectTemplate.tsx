@@ -17,7 +17,7 @@ const SelectTemplate = ({ selectType, content }: MyComponentProps) => {
     <>
       <div className="container">
         <div className="title">
-          <div className="user-name">SSC</div>의{' '}
+          <div className="user-name">GAME</div>의{' '}
           {selectType === 'first' ? '1차' : '최종'} 합격자 선택
         </div>
 

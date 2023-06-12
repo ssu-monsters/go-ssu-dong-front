@@ -28,7 +28,7 @@ const ProcessDashboard = ({
     <>
       <div className="container">
         <div className="title">
-          <span className="group-name">SSC</span> 의 리쿠르팅
+          <span className="group-name">GAME</span> 의 리쿠르팅
         </div>
         <div>
           {stepInfo.map((item, idx: number) => {

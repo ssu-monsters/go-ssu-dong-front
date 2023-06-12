@@ -10,8 +10,6 @@ import { getAsync } from '@/api/API';
 import { useRecoilState } from 'recoil';
 import { isLoggedInState, userState } from '@/atoms/auth';
 
-const username = '배현서'; // TODO
-
 const LoginBox = () => {
   const router = useRouter();
   const [isLoggedIn, setIsLoggedIn] = useRecoilState(isLoggedInState);
@@ -90,7 +88,7 @@ const LoginBox = () => {
               className="login-button apply-button"
               onClick={loginHandler}
             >
-              내 지원현황 보러가기
+              관리 페이지로 이동하기
             </button>
             <button className="register-button" onClick={spaceLogout}>
               로그아웃

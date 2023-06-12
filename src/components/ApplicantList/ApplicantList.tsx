@@ -14,7 +14,7 @@ const ApplicantList = ({ content }: MyComponentProps) => {
     <div>
       <div className="container">
         <div className="title">
-          <div className="user-name">SSC </div> 의 지원자 관리
+          <div className="user-name">GAME </div> 의 지원자 관리
         </div>
         <Table
           fieldNameList={current}
