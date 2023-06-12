@@ -8,18 +8,18 @@ export const FirstSelectData = [
     resultSelect: <ResultCheckBox />,
   },
   {
-    name: '배현서',
-    paper: '숭실대 소프트웨어학부 배현서 지원서',
+    name: '최호연',
+    paper: '숭실대 소프트웨어학부 최호연 지원서',
     resultSelect: <ResultCheckBox />,
   },
   {
-    name: '배현서',
-    paper: '숭실대 소프트웨어학부 배현서 지원서',
+    name: '박진석',
+    paper: '숭실대 소프트웨어학부 박진석 지원서',
     resultSelect: <ResultCheckBox />,
   },
   {
-    name: '배현서',
-    paper: '숭실대 소프트웨어학부 배현서 지원서',
+    name: '공소나',
+    paper: '숭실대 소프트웨어학부 공소나 지원서',
     resultSelect: <ResultCheckBox />,
   },
 ];
